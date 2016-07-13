@@ -1,0 +1,28 @@
+[general]
+  use_environment = "default"
+  time_zone = "America/Sao_Paulo"
+ 
+[default]
+  db_host = "127.0.0.1"
+  db_name = "teste"
+  db_user = "test_user"
+  db_pass = "test_pass"
+  site_path = "/Users/Sites/mywebsite/app"
+  magrathea_path = "/Users/Sites/mywebsite/Magrathea"
+  compress_js = "false"
+  compress_css = "false"
+  time_zone = "America/Sao_Paulo"
+  testThis = "test_ok"
+ 
+[another_config]
+  db_host = "127.0.0.2"
+  db_name = "production"
+  db_user = "production_user"
+  db_pass = "production_pass"
+  site_path = "/etc/mywebsite/app"
+  magrathea_path = "/etc/mywebsite/Magrathea"
+  compress_js = "true"
+  compress_css = "true"
+  time_zone = "America/Sao_Paulo"
+  testThis = "test_not_ok"
+      
