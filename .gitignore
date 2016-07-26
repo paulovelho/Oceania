@@ -10,3 +10,6 @@ app/plugins
 *_compressed.js
 *_compressed.css
 *.magratheaDB
+layout
+css/layout
+javascript/layout

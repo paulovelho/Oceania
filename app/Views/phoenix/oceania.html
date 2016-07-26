@@ -1,0 +1,33 @@
+{include file="phoenix/sections/meta.html"}
+<body>
+{include file="phoenix/sections/top-bar.html"}
+<div class="container">
+
+  <div class="main_content row-fluid">
+
+    <div class="span3">
+      {include file="phoenix/sections/side-menu.html"}
+    </div><!--/span-->
+    <div class="span9">
+      <div class="row-fluid">
+        <div class="span12">
+          
+          <ul class="breadcrumb br_styled no_space">                              
+            <li class="active">{$title}</li>
+          </ul> 
+          {include file="phoenix/pages/$page.html"}
+
+        </div>                  
+      </div><!--/row-->
+       
+      
+    </div><!--/span-->
+  </div><!--/row-->      
+
+  {include file="phoenix/sections/footer.html"}
+
+</div><!--/.fluid-container-->
+
+</body>
+  {$View->Javascript()}
+</html>

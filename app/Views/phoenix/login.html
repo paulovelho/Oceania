@@ -1,0 +1,40 @@
+{include file="phoenix/sections/meta.html"}
+  <body>
+
+    <div class="login_main_cont">      
+        <div class="login_cont group login">
+            <ul class="login_switcher">
+            </ul>
+            <h2>Login</h2>          
+            <div class="login_form">
+              <form class="formClass" method="post" action="/Login/Go">
+                <fieldset>                
+                    <label for="username"><span>e-mail</span></label>
+                    <input id="username" name="username" class="validate[required] text-input" placeholder="e-mail" type="text" tabindex="1" accesskey="u">                
+                </fieldset>
+                <fieldset>                
+                    <label class="pw_cont" for="password"><span>Password</span></label>
+                    <input id="password" name="password" class="validate[required] text-input" placeholder="password" type="password" tabindex="2" accesskey="p">                
+                </fieldset>
+                {if isset($message)}
+                <fieldset class="warning">{$message}</fieldset>
+                {/if}
+                <fieldset class="login_submit"><button type="submit" class="btn">GO!</button></fieldset>
+              </form>      
+            </div>
+        </div>     
+    </div>
+
+    <!-- ===================== JS ===================== -->
+	<script src="js/libs/ios-orientationchange-fix.js"></script> 
+    <script src="js/libs/jquery-ui-1.8.20.custom.min.js"></script>  
+    <script src="js/plugins/filevalidation/languages/jquery.validationEngine-en.js"></script>  
+    <script src="js/plugins/filevalidation/jquery.validationEngine.js"></script>  
+    <script src="js/common.js"></script>
+	
+	<!-- Site specific - JS -->  
+	<script src="js/script.js"></script>   
+    <script src="js/specific/login.js"></script>  
+    
+  </body>
+</html>

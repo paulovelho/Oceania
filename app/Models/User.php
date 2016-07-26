@@ -16,6 +16,12 @@ class UserControl extends UserControlBase {
 			->Where(array("email" => $email, "password" => sha1($password)));
 		return self::RunRow($query);
 	}
+
+	public static function SaveSession($user) {
+		$_SESSION["logged_user"] = $user->id;
+	}
+	public static function Logout() {
+	}
 }
 
 ?>
