@@ -11,6 +11,14 @@ class InstallController extends MagratheaController {
 		$this->Start();
 	}
 
+	public function Project() {
+		$this->Start();
+		$p = new Project();
+		$p->name = "Oceania";
+		$p->id = 1;
+		$p->Insert();
+	}
+
 	public function User() {
 		$this->Start();
 		$usr = new User();

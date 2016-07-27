@@ -1,0 +1,24 @@
+<div class="widget table_basic_header">
+<header>
+    <h3>Tasks</h3>
+    <ul class="toggle_content">
+        <li class="arrow"><a href="#">Toggle Content</a></li>
+    </ul>
+</header>
+<section>
+     <table class="table_basic">
+            <tr class="th">
+                <th>Title</th>
+                <th>Project</th>
+                <th>Status</th>
+            </tr>
+            {foreach $tasks as $t}
+            <tr {if $t@iteration is even}class="even"{/if}>
+                <td>{$t->title}</td>
+                <td>{$t->project->name}</td>
+                <td>($t->status->title)</td>
+            </tr>
+            {/foreach}
+    </table>
+</section>
+</div>
