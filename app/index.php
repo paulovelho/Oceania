@@ -1,6 +1,7 @@
 <?php
 
 	include("inc/global.php"); 
+	include("Controls/_Controller.php");
 	MagratheaController::IncludeAllControllers();
 	MagratheaModel::IncludeAllModels();
 
