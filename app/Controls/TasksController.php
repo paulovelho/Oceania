@@ -20,12 +20,19 @@ class TasksController extends BaseControl {
 		$t->text = $_POST["text"];
 		$t->project_id = 1;
 		$t->Insert();
+		return $this->Json( array('success' => true, 'data' => $t));
 	}
 
-	public function List() {
+	public function ShowList() {
 		$tasks = TaskControl::GetAll();
 		$this->assign("tasks", $tasks);
 		$this->display("phoenix/tasks/list.html");
+	}
+
+	public function ShowAdd() {
+		$proj = new Project(1);
+		$this->assign("project", $proj);
+		$this->display("phoenix/tasks/form.html");
 	}
 
 }

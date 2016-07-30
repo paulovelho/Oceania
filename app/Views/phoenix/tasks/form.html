@@ -1,0 +1,37 @@
+<div class="widget table_basic_header">
+	<header>
+		<h3>Add Task</h3>
+		<ul class="toggle_content">
+			<li class="arrow"><a href="#">Toggle Content</a></li>
+		</ul>
+	</header>
+	<section class="welly">
+		<form class="well form-horizontal" id="add-task" onsubmit="return submitAddTask();">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">Title</label>
+					<div class="controls">
+						<input class="span12" type="text" id="title" name="title" required placeholder="I need to do this">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Description</label>
+					<div class="controls">
+						<textarea id="text" name="text"></textarea>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Project</label>
+					<div class="controls">
+						<input class="span12 disabled" id="project" type="text" placeholder="{$project->name}" disabled>
+						<input type="hidden" name="project_id" id="project_id" value="{$project->id}"/>
+					</div>
+				</div>
+				<div class="form-actions">
+					<button type="submit" class="btn btn-success">Add</button>
+				</div>
+			</fieldset>
+		</form>
+	</section>
+</div>
+

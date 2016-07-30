@@ -15,8 +15,8 @@
             {foreach $tasks as $t}
             <tr {if $t@iteration is even}class="even"{/if}>
                 <td>{$t->title}</td>
-                <td>{$t->project->name}</td>
-                <td>($t->status->title)</td>
+                <td>{$t->Project->name}</td>
+                <td>{$t->Status->name}</td>
             </tr>
             {/foreach}
     </table>

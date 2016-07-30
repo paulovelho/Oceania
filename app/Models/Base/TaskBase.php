@@ -32,15 +32,15 @@ class TaskBase extends MagratheaModel implements iMagratheaModel {
 		$this->dbValues["user_id"] = "int";
 		$this->dbValues["creator_id"] = "int";
 
-		$this->relations["properties"]["Projects"] = null;
-		$this->relations["methods"]["Projects"] = "GetProjects";
-		$this->relations["lazyload"]["Projects"] = "false";
+		$this->relations["properties"]["Project"] = null;
+		$this->relations["methods"]["Project"] = "GetProject";
+		$this->relations["lazyload"]["Project"] = "false";
 		$this->relations["properties"]["Work"] = null;
 		$this->relations["methods"]["Work"] = "GetWork";
 		$this->relations["lazyload"]["Work"] = "false";
-		$this->relations["properties"]["ParentTasks"] = null;
-		$this->relations["methods"]["ParentTasks"] = "GetParentTasks";
-		$this->relations["lazyload"]["ParentTasks"] = "false";
+		$this->relations["properties"]["ParentTask"] = null;
+		$this->relations["methods"]["ParentTask"] = "GetParentTask";
+		$this->relations["lazyload"]["ParentTask"] = "false";
 		$this->relations["properties"]["Tasks"] = null;
 		$this->relations["methods"]["Tasks"] = "GetTasks";
 		$this->relations["lazyload"]["Tasks"] = "true";
@@ -62,14 +62,14 @@ class TaskBase extends MagratheaModel implements iMagratheaModel {
 	}
 
 	// >>> relations:
-	public function GetProjects(){
-		if($this->relations["properties"]["Projects"] != null) return $this->relations["properties"]["Projects"];
-		$this->relations["properties"]["Projects"] = new Project($this->project_id);
-		return $this->relations["properties"]["Projects"];
+	public function GetProject(){
+		if($this->relations["properties"]["Project"] != null) return $this->relations["properties"]["Project"];
+		$this->relations["properties"]["Project"] = new Project($this->project_id);
+		return $this->relations["properties"]["Project"];
 	}
-	public function SetProjects($projects){
-		$this->relations["properties"]["Projects"] = $projects;
-		$this->project_id = $projects->GetID();
+	public function SetProject($project){
+		$this->relations["properties"]["Project"] = $project;
+		$this->project_id = $project->GetID();
 		return $this;
 	}
 	public function GetWork(){
@@ -82,14 +82,14 @@ class TaskBase extends MagratheaModel implements iMagratheaModel {
 		$this->work_id = $work->GetID();
 		return $this;
 	}
-	public function GetParentTasks(){
-		if($this->relations["properties"]["ParentTasks"] != null) return $this->relations["properties"]["ParentTasks"];
-		$this->relations["properties"]["ParentTasks"] = new Task($this->parent_task_id);
-		return $this->relations["properties"]["ParentTasks"];
+	public function GetParentTask(){
+		if($this->relations["properties"]["ParentTask"] != null) return $this->relations["properties"]["ParentTask"];
+		$this->relations["properties"]["ParentTask"] = new Task($this->parent_task_id);
+		return $this->relations["properties"]["ParentTask"];
 	}
-	public function SetParentTasks($parenttasks){
-		$this->relations["properties"]["ParentTasks"] = $parenttasks;
-		$this->parent_task_id = $parenttasks->GetID();
+	public function SetParentTask($parenttask){
+		$this->relations["properties"]["ParentTask"] = $parenttask;
+		$this->parent_task_id = $parenttask->GetID();
 		return $this;
 	}
 	public function GetTasks(){

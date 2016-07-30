@@ -13,7 +13,9 @@
 		MagratheaView::Instance()
 			->IncludeCSS("css/layout/theme.css")
 			->IncludeJavascript("javascript/layout/common.js")
-			->IncludeJavascript("javascript/layout/script.js");
+			->IncludeJavascript("javascript/layout/script.js")
+			->IncludeJavascript("javascript/scripts.js")
+			->IncludeJavascript("javascript/tasks.js");
 
 		// JAVASCRIPTS:
 		/**
