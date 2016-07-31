@@ -9,10 +9,13 @@
 	// let's include some of Magrathea's awesome plugins:
 	include("plugins/jquery1.7/load.php");
 	include("plugins/bootstrap2/load.php");
+	include("plugins/colorbox/load.php");
+	include("plugins/font-awesome4/load.php");
 	
 	try {
 		MagratheaView::Instance()
 			->IncludeCSS("css/layout/theme.css")
+			->IncludeCSS("css/style.css")
 			->IncludeJavascript("javascript/layout/common.js")
 			->IncludeJavascript("javascript/layout/script.js")
 			->IncludeJavascript("javascript/scripts.js")

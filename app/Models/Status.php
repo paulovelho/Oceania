@@ -4,15 +4,11 @@ include(__DIR__."/Base/StatusBase.php");
 
 class Status extends StatusBase {
 	function __construct($st=0) {
-		if(is_int($st)){
+		if(is_numeric($st)){
 			parent::__construct($st);
 		} else {
 			return StatusControl::Instance()->GetByName($st);
 		}
-	}
-
-	public static function Get($st){
-		return StatusControl::Instance()->Get($st);
 	}
 
 	function Save(){
@@ -29,6 +25,18 @@ class Status extends StatusBase {
 		parent::Update();
 		StatusControl::Instance()->Refresh();
 	}
+}
+
+class Statuses {
+
+	public static function Get($st){
+		return StatusControl::Instance()->Get($st);
+	}
+
+	public static function GetAll() {
+		return StatusControl::Instance()->status;
+	}
+
 }
 
 class StatusControl extends StatusControlBase {

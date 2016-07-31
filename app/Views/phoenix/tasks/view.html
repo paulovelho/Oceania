@@ -1,0 +1,14 @@
+<div class="widget table_basic_header">
+	<header>
+		<h3>{$task->title}</h3>
+	</header>
+	<section class="welly">
+		<div class="row-fluid">
+			<input class="span12" type="text" id="title" name="title" required value="{$task->title}">
+		</div>
+		<div class="row-fluid">
+			{html_options name=status options=$status selected=$task->status_id onchange="changeStatus({$task->id}, this);"}
+		</div>
+	</section>
+</div>
+

@@ -5,20 +5,19 @@ include(__DIR__."/Base/TaskBase.php");
 class Task extends TaskBase {
 	public function __construct($id=0) {
 		parent::__construct($id);
-		if(empty($status_id)) {
+		if(empty($this->status_id)) {
 			$this->status_id = 1;
-			$this->Status = StatusControl::Instance()->Get(1);
 		}
 	}
 
-	public function ChangeStatus($st) {
+	public function ChangeStatus($st_id) {
 		$history = new StatusChange();
 		$history->task_id = $this->id;
-		$history->old_status = $this->Status->id;
-		$history->new_status = $st->id;
+		$history->old_status = $this->status_id;
+		$history->new_status = $st_id;
 		$history->timestamp = now();
 		$history->Insert();
-		$this->SetStatus($st);
+		$this->status_id = $st_id;
 		$this->Update();
 	}
 

@@ -7,6 +7,15 @@ class BaseControl extends MagratheaController {
     return ($user != null);
   }
 
+  protected function LoadStatus() {
+    $status = Statuses::GetAll();
+    $st = array();
+    foreach ($status as $s) {
+      $st[$s->id] = $s->name;
+    }
+    $this->assign("status", $st);
+  }
+
   public function CheckLogin() {
     if( !$this->IsLogged() )
       $this->ForwardTo("Login", "Index");

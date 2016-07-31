@@ -11,10 +11,14 @@ function LoadOnDiv(url, div_id, callback) {
 
 function submitForm(form_id, url, callback_success, callback_error) {
 	var form = $(form_id).serialize();
+	postData(url, form, callback_success, callback_error);
+}
+
+function postData(url, data, callback_success, callback_error) {
 	$.ajax({
-		url: url, 
+		url: url,
 		type: "POST",
-		data: form, 
+		data: data, 
 		dataType: "json",
 		success: function(data){
 			if( data.success ) {
@@ -23,5 +27,6 @@ function submitForm(form_id, url, callback_success, callback_error) {
 				callback_error(data.error);
 			}
 		}
-	})
+	});
 }
+

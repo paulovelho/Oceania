@@ -11,16 +11,16 @@
 
 		function testGetAll(){
 			echo "<br/> testing getting all...";
-			$all = StatusControl::Instance()->status;
+			$all = Statuses::GetAll();
 			$this->assertEqual(7, count($all));
 		}
 
 		function testGetOne(){
 			echo "<br/> testing getting specific status...";
-			$pending = Status::Get(1);
+			$pending = Statuses::Get(1);
 			$this->assertNotNull($pending);
 			$this->assertEqual("pending", $pending->name);
-			$todo = Status::Get("to-do");
+			$todo = Statuses::Get("to-do");
 			$this->assertNotNull($todo);
 			$this->assertEqual("2", $todo->id);
 		}

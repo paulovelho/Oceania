@@ -23,8 +23,17 @@ class TasksController extends BaseControl {
 		return $this->Json( array('success' => true, 'data' => $t));
 	}
 
+	public function ChangeStatus() {
+		$id = $_POST["task_id"];
+		$status = $_POST["status_id"];
+		$t = new Task($id);
+		$t->ChangeStatus($status);
+		return $this->Json( array('success' => true, 'data' => $t));
+	}
+
 	public function ShowList() {
 		$tasks = TaskControl::GetAll();
+//		p_r($tasks);
 		$this->assign("tasks", $tasks);
 		$this->display("phoenix/tasks/list.html");
 	}
@@ -33,6 +42,13 @@ class TasksController extends BaseControl {
 		$proj = new Project(1);
 		$this->assign("project", $proj);
 		$this->display("phoenix/tasks/form.html");
+	}
+
+	public function Show($id) {
+		$t = new Task($id);
+		$this->assign("task", $t);
+		$this->LoadStatus();
+		$this->display("phoenix/tasks/view.html");
 	}
 
 }

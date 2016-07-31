@@ -7,7 +7,7 @@ class Project extends ProjectBase {
 		$this->start_date = now();
 	}
 	public function Finish() {
-		$s = Status::Get("done");
+		$s = Statuses::Get("done");
 		$this->SetStatus($s);
 		$this->end_date = now();
 	}

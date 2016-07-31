@@ -11,12 +11,14 @@
                 <th>Title</th>
                 <th>Project</th>
                 <th>Status</th>
+                <th>&nbsp;</th>
             </tr>
             {foreach $tasks as $t}
             <tr {if $t@iteration is even}class="even"{/if}>
                 <td>{$t->title}</td>
                 <td>{$t->Project->name}</td>
                 <td>{$t->Status->name}</td>
+                <td><i class="fa fa-eye" onclick="viewTask({$t->id});"></i></td>
             </tr>
             {/foreach}
     </table>
