@@ -36,6 +36,7 @@ class TaskControl extends TaskControlBase {
 			->Where(" title LIKE '%".$query."%' OR text LIKE '%".$query."%' ");
 		return self::Run($query);
 	}
+
 }
 
 ?>

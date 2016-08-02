@@ -31,6 +31,14 @@ class TasksController extends BaseControl {
 		return $this->Json( array('success' => true, 'data' => $t));
 	}
 
+	public function FromStatus($id) {
+		$status = new Status($id);
+		$tasks = $status->GetTasks();
+		$this->assign("status", $status);
+		$this->assign("tasks", $tasks);
+		$this->display("phoenix/tasks/from_status.html");
+	}
+
 	public function ShowList() {
 		$tasks = TaskControl::GetAll();
 //		p_r($tasks);

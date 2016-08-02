@@ -1,7 +1,13 @@
 
 <div class="row-fluid">
-	<div class="span12" id="taskAdd"></div>
+	<div class="span12">
+		<button class="btn btn-success span 12" onClick="addTask();">
+			<i class="fa fa-plus-circle"></i> Add Task
+		</button>
+	</div>
 </div>
+
+<br/>
 
 <div class="row-fluid">
 	<div class="span12" id="taskList"></div>
@@ -10,6 +16,5 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	LoadOnDiv("/Tasks/ShowList", "#taskList");
-	LoadOnDiv("/Tasks/ShowAdd", "#taskAdd");
 });
 </script>

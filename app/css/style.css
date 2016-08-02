@@ -1,0 +1,15 @@
+#cboxContent .widget header,
+#cboxContent .widget section { 
+	width: 450px;
+}
+
+.task-card {
+	margin: 5px;
+	padding: 7px;
+	border: 1px solid #AAA;
+	border-radius: 5px;
+}
+.task-card hr {
+	margin: 0;
+}
+
