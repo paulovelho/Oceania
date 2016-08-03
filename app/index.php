@@ -14,6 +14,7 @@
 	try {
 		MagratheaView::Instance()
 			->IncludeCSS("css/layout/theme.css")
+			->IncludeCSS("css/common.css")
 			->IncludeCSS("css/style.css")
 			->IncludeJavascript("javascript/layout/common.js")
 			->IncludeJavascript("javascript/layout/script.js")

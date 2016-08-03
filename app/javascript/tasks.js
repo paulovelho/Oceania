@@ -6,7 +6,7 @@ function submitAddTask() {
 	submitForm("#add-task", "/Tasks/Add", 
 		function(){
 			updateList();
-			$.colorbox.close();
+			$('#modal').modal('hide');
 			$.jGrowl("Task Added", { header: 'Success', theme:"notification_styled_success" });			
 		}, function() {
 			alert("error!");
@@ -31,7 +31,7 @@ function changeStatus(task_id, status) {
 			status_id: st
 		}, function() {
 			updateList();
-			$.colorbox.close();
+			$('#modal').modal('hide');
 			$.jGrowl("Status Changed", { header: 'Success', theme:"notification_styled_success" });			
 		}, function() {
 			alert("error");

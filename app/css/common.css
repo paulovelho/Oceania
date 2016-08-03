@@ -1,0 +1,28 @@
+/* --->> 2 - jGrowl 1.2.6 - http://stanlemon.net/pages/jgrowl
+-------------------------------------------------------------------------------------------------------------------*/
+/* Normal Style Positions */
+div.jGrowl { 
+	color:#737373; 
+	font-size:11px; 
+	position:absolute; 
+	z-index:9999; 
+	
+}
+body > div.jGrowl { position:fixed; }
+div.jGrowl.top-left { left:0; top:0; }
+div.jGrowl.top-right { right:0; top:0; }
+div.jGrowl.bottom-left { bottom:0; left:0; }
+div.jGrowl.bottom-right { bottom:0; right:0; }
+div.jGrowl.center { left:25%; top:0; width:50%; }
+div.center div.jGrowl-notification { margin-left:auto; margin-right:auto; }
+div.center div.jGrowl-closer { margin-left:auto; margin-right:auto; }
+div.jGrowl div.jGrowl-notification { display:none; margin:10px; min-height:50px; opacity:.90; padding:10px; text-align:left; width:250px; zoom:1px; }
+div.jGrowl div.jGrowl-closer { color:#737373; cursor:pointer; display:none;  font-weight:700; margin:10px; opacity:.90; padding:4px 10px; text-align:center; width:235px; zoom:1px; }
+div.jGrowl div.jGrowl-notification, 
+div.jGrowl div.jGrowl-closer { background: #FAFAFA; border:1px solid #d5d5d5;   }
+div.jGrowl div.jGrowl-notification div.jGrowl-header { color:#737373;  font-weight:bold; padding-bottom:5px; }
+div.jGrowl div.jGrowl-notification div.jGrowl-close { color:#737373; cursor:pointer; float:right; font-size:12px; z-index:99;}
+div.jGrowl div.jGrowl-notification div.jGrowl-close:hover,
+div.jGrowl div.jGrowl-closer:hover { color:#000000;}
+/* Hide jGrowl when printing */
+@media print { div.jGrowl { display:none; } }
