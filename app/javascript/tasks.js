@@ -15,11 +15,13 @@ function submitAddTask() {
 }
 
 function viewTask(id) {
-	$.colorbox({ href: "Tasks/Show/" + id });
+	$("#modal").modal({ remote: "/Tasks/Show/" + id });
+	//	$.colorbox({ href: "Tasks/Show/" + id });
 }
 
 function addTask(){
-	$.colorbox({ href: "/Tasks/ShowAdd" });	
+	$("#modal").modal({ remote: "/Tasks/ShowAdd" });
+	//	$.colorbox({ href: "/Tasks/ShowAdd" });	
 }
 
 function changeStatus(task_id, status) {

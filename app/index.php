@@ -9,7 +9,6 @@
 	// let's include some of Magrathea's awesome plugins:
 	include("plugins/jquery1.7/load.php");
 	include("plugins/bootstrap2/load.php");
-	include("plugins/colorbox/load.php");
 	include("plugins/font-awesome4/load.php");
 	
 	try {
