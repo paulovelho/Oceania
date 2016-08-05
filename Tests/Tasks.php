@@ -15,17 +15,31 @@
 		function tearDown(){
 		}
 
-		function addTask($work_id, $title, $text){
+		function insertExtraTasks(){
+			$this->insertTask(2, 1, "task1", "", 1);
+			$this->insertTask(2, 1, "task2", "", 1);
+			$this->insertTask(2, 1, "task3", "", 2);
+			$this->insertTask(2, 1, "task4", "", 3);
+		}
+
+		function insertTask($project_id, $work_id, $title, $text, $status=null){
 			$t = new Task();
 			$t->title = $title;
 			$t->text = $text;
-			$t->project_id = 1;
+			$t->project_id = $project_id;
 			$t->work_id = $work_id;
-			$t->user_id = 1;
+			$t->user_id = $project_id;
+			if( !empty($status) ){
+				$t->status_id = $status;
+			}
 			$this->assertNull($t->id);
 			$t->Insert();
 			$this->assertNotNull($t->id);
 			return $t;
+		}
+
+		function addTask($work_id, $title, $text){
+			return $this->insertTask(1, $work_id, $title, $text);
 		}
 
 		function testIfTaskCanBeCreated(){
@@ -63,10 +77,19 @@
 		}
 
 		function testGetTasksFromWork(){
-			echo "<br/> testing getting tasks from project...";
+			echo "<br/> testing getting tasks from work...";
 			$work = new Work(1);
 			$tasks = $work->Tasks;
 			$this->assertEqual(3, count($tasks));
+		}
+
+		function testGetFromProjectAndStatus(){
+			echo "<br/> testing getting tasks from project and status...";
+			$this->insertExtraTasks();
+			$tasks_in_1 = $this->tControl->GetFromProjectStatus(2, 1);
+			$this->assertEqual(2, count($tasks_in_1));
+			$tasks_in_2 = $this->tControl->GetFromProjectStatus(2, 2);
+			$this->assertEqual(1, count($tasks_in_2));
 		}
 
 	}
