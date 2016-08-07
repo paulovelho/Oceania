@@ -9,15 +9,21 @@
 <br/>
 
 <div class="row-fluid">
-	<div id="list-todo" class="span4"></div>
-	<div id="list-wip" class="span4"></div>
-	<div id="list-homolog" class="span4"></div>
+	<div id="list-backlog" class="span2"></div>
+	<div id="list-todo" class="span2"></div>
+	<div id="list-wip" class="span2"></div>
+	<div id="list-homolog" class="span2"></div>
+	<div id="list-hold" class="span2"></div>
+	<div id="list-done" class="span2"></div>
 </div>
 
 <script type="text/javascript">
 $(document).ready(function(){
-	LoadOnDiv("/Tasks/FromStatus/2", "#list-todo");
 	LoadOnDiv("/Tasks/FromStatus/3", "#list-wip");
+	LoadOnDiv("/Tasks/FromStatus/2", "#list-todo");
+	LoadOnDiv("/Tasks/FromStatus/1", "#list-backlog");
+	LoadOnDiv("/Tasks/FromStatus/4", "#list-hold");
 	LoadOnDiv("/Tasks/FromStatus/6", "#list-homolog");
+	LoadOnDiv("/Tasks/FromStatus/5", "#list-done");
 });
 </script>
