@@ -4,7 +4,6 @@ class HomeController extends BaseControl {
 
 	private function Start() {
 		$this->assign("title", "Oceania");
-		$this->assign("selected", "home");
 		$this->CheckLogin();
 	}
 

@@ -1,6 +1,15 @@
-#cboxContent .widget header,
-#cboxContent .widget section { 
-	width: 450px;
+/* --- NAV BAR --- */
+.navbar .main_nav > li > a {
+	font-size: 20px;
+	color: #DDD;
+	text-shadow: 0 1px 0 #777;
+}
+.navbar .main_nav > li > a > i {
+	margin: 0 15px;
+}
+.top_menu a span i {
+	margin-right: 7px;
+	font-size: 16px;
 }
 
 .task-card {

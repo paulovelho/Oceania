@@ -15,22 +15,13 @@
 
   <div class="main_content row-fluid">
 
-    <div class="span3">
-      {include file="phoenix/sections/side-menu.html"}
-    </div><!--/span-->
-    <div class="span9">
-      <div class="row-fluid">
-        <div class="span12">
+    <div class="span12">
           
-          <ul class="breadcrumb br_styled no_space">                              
-            <li class="active">{$title}</li>
-          </ul>
-          <br/>
-          {include file="phoenix/pages/$page.html"}
-
-        </div>                  
-      </div><!--/row-->
-       
+      <ul class="breadcrumb br_styled no_space">                              
+        <li class="active">{$title}</li>
+      </ul>
+      <br/>
+      {include file="phoenix/pages/$page.html"}
       
     </div><!--/span-->
   </div><!--/row-->      

@@ -4,7 +4,6 @@ class TasksController extends BaseControl {
 
 	private function Start() {
 		$this->assign("title", "Tasks");
-		$this->assign("selected", "tasks");
 		$this->CheckLogin();
 	}
 
