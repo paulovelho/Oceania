@@ -9,7 +9,7 @@ class TasksController extends BaseControl {
 
 	public function Index(){
 		$this->Start();
-		$this->assign("page", "tasks/index");
+		$this->assign("page", "tasks");
 		$this->display("phoenix/oceania.html");
 	}
 
@@ -19,7 +19,26 @@ class TasksController extends BaseControl {
 		$t->text = $_POST["text"];
 		$t->project_id = 1;
 		$t->Insert();
-		return $this->Json( array('success' => true, 'data' => $t));
+		return $this->Json( array('success' => true, 'data' => $t) );
+	}
+
+	public function Update() {
+		$t = new Task($_POST["id"]);
+		$t->title = $_POST["title"];
+		$t->text = $_POST["text"];
+		$t->project_id = $_POST["project_id"];
+		$status = $_POST["status_id"];
+		if( $status != $t->status_id ) {
+			$t->ChangeStatus($status);
+		}
+		$t->Save();
+		return $this->Json( array('success' => true, 'data' => $t) );
+	}
+
+	public function DeleteTask() {
+		$t = new Task($_POST["id"]);
+		$t->Delete();
+		return $this->Json( array('success' => true, 'data' => null) );
 	}
 
 	public function ChangeStatus() {
@@ -27,7 +46,7 @@ class TasksController extends BaseControl {
 		$status = $_POST["status_id"];
 		$t = new Task($id);
 		$t->ChangeStatus($status);
-		return $this->Json( array('success' => true, 'data' => $t));
+		return $this->Json( array('success' => true, 'data' => $t) );
 	}
 
 	public function FromStatus($id) {
@@ -45,17 +64,22 @@ class TasksController extends BaseControl {
 		$this->display("phoenix/tasks/list.html");
 	}
 
-	public function ShowAdd() {
+	public function NewTask() {
+		$task = new Task();
 		$proj = new Project(1);
+		$this->LoadStatus();
+		$this->assign("task", $task);
 		$this->assign("project", $proj);
 		$this->display("phoenix/tasks/form.html");
 	}
 
 	public function Show($id) {
 		$t = new Task($id);
-		$this->assign("task", $t);
+		$proj = new Project(1);
 		$this->LoadStatus();
-		$this->display("phoenix/tasks/view.html");
+		$this->assign("task", $t);
+		$this->assign("project", $proj);
+		$this->display("phoenix/tasks/form.html");
 	}
 
 }

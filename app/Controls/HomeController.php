@@ -9,8 +9,7 @@ class HomeController extends BaseControl {
 
 	public function Index(){
 		$this->Start();
-		$this->assign("page", "home");
-		$this->display("phoenix/oceania.html");
+		$this->Load("Tasks", "Index");
 	}
 
 }
