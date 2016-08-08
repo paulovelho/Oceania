@@ -5,6 +5,9 @@ function LoadOnDiv(url, div_id, callback) {
 		success: function(result){
 			$(div_id).html(result);
 			$("#loader_cont").fadeOut();
+			if( callback ){
+				callback();
+			}
 		}
 	});
 }

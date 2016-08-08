@@ -59,25 +59,42 @@ function addTask(){
 	$("#modal").modal({ remote: "/Tasks/NewTask" });
 }
 
-function changeStatus(task_id, status) {
-	st = $(status).val();
+function changeStatus(task_id, status_id, callback) {
 	postData("/Tasks/ChangeStatus", {
 			task_id: task_id,
-			status_id: st
+			status_id: status_id
 		}, function() {
-			refreshBoard();
 			$('#modal').modal('hide');
-			$.jGrowl("Status Changed", { header: 'Success', theme:"notification_styled_success" });			
+			$.jGrowl("Status Changed", { header: 'Success', theme:"notification_styled_success" });
+			if( callback ) {
+				callback();
+			}
 		}, function() {
 			alert("error");
 		});
 }
 
+function sortTasks() {
+	var elements = "#task-list-1, #task-list-2, #task-list-3, #task-list-4, #task-list-5, #task-list-6";
+	$(elements).sortable("destroy");
+	$(elements).sortable({
+		connectWith: ".sortable",
+		cursor: "move",
+		placeholder: "task-card",
+		receive: function(event, ui) {
+			var target_status = $(event.target).attr("data-status-id");
+			var task_id = $(ui.item[0]).attr("data-task-id");
+			changeStatus(task_id, target_status);
+		}
+	});
+}
+
 function refreshBoard(){
-	LoadOnDiv("/Tasks/FromStatus/3", "#list-wip");
-	LoadOnDiv("/Tasks/FromStatus/2", "#list-todo");
-	LoadOnDiv("/Tasks/FromStatus/1", "#list-backlog");
-	LoadOnDiv("/Tasks/FromStatus/4", "#list-hold");
-	LoadOnDiv("/Tasks/FromStatus/6", "#list-homolog");
-	LoadOnDiv("/Tasks/FromStatus/5", "#list-done");
+	var sort = function(){ sortTasks(); }
+	LoadOnDiv("/Tasks/FromStatus/3", "#list-wip", sort);
+	LoadOnDiv("/Tasks/FromStatus/2", "#list-todo", sort);
+	LoadOnDiv("/Tasks/FromStatus/1", "#list-backlog", sort);
+	LoadOnDiv("/Tasks/FromStatus/4", "#list-hold", sort);
+	LoadOnDiv("/Tasks/FromStatus/5", "#list-homolog", sort);
+	LoadOnDiv("/Tasks/FromStatus/6", "#list-done", sort);
 }

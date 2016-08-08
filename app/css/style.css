@@ -17,6 +17,7 @@
 	padding: 7px;
 	border: 1px solid #AAA;
 	border-radius: 5px;
+	cursor: default;
 }
 
 .task-card hr {
