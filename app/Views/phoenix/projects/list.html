@@ -1,0 +1,22 @@
+<div class="widget table_basic_header">
+<header>
+    <h3>Projects</h3>
+    <ul class="toggle_content">
+        <li class="arrow"><a href="#">Toggle Content</a></li>
+    </ul>
+</header>
+<section>
+     <table class="table_basic">
+            <tr class="th">
+                <th>Name</th>
+                <th>&nbsp;</th>
+            </tr>
+            {foreach $projects as $p}
+            <tr {if $p@iteration is even}class="even"{/if}>
+                <td>{$p->name}</td>
+                <td><i class="fa fa-eye" onclick="viewProject({$p->id});"></i></td>
+            </tr>
+            {/foreach}
+    </table>
+</section>
+</div>

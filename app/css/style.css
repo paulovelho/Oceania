@@ -18,6 +18,7 @@
 	border: 1px solid #AAA;
 	border-radius: 5px;
 	cursor: default;
+	background-color: #FFF;
 }
 
 .task-card hr {

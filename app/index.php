@@ -19,6 +19,7 @@
 			->IncludeJavascript("javascript/layout/common.js")
 			->IncludeJavascript("javascript/layout/script.js")
 			->IncludeJavascript("javascript/scripts.js")
+			->IncludeJavascript("javascript/projects.js")
 			->IncludeJavascript("javascript/tasks.js");
 
 		// JAVASCRIPTS:

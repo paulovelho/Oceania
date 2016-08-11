@@ -8,7 +8,7 @@
 				<div class="control-group">
 					<textarea id="text" name="text" class="span12">{$task->text}</textarea>
 				</div>
-				<div class="control-group">
+				<!--div class="control-group">
 					<label class="control-label">Project</label>
 					<div class="controls">
 						<input class="span12 disabled" id="project" type="text" placeholder="{$project->name}" disabled />
@@ -17,14 +17,16 @@
 				</div>
 				<div class="control-group">
 					{html_options name=status_id class="span12" options=$status selected=$task->status_id}
-				</div>
+				</div-->
 				<div class="form-actions">
 					<button type="submit" class="btn btn-success">
 						<i class="fa fa-save"></i> Save
 					</button>
+					{if $task->id}
 					<button class="btn btn-danger" onClick="deleteTask(); return false;" > 
-						<i class="fa fa-trash"></i> Delete
+						<i class="fa fa-trash-o"></i> Delete
 					</button>
+					{/if}
 				</div>
 			</fieldset>
 		</form>

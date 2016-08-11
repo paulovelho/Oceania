@@ -4,8 +4,8 @@ function updateList() {
 
 function saveTask() {
 	var id = $("#add-task #task-id").val();
-	if(id == null) insertTask();
-	else updateTask();
+	if(id > 0) updateTask();
+	else insertTask();
 	return false;
 }
 
