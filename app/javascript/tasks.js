@@ -50,6 +50,11 @@ function viewTask(id, title) {
 	$("#modal").modal({ remote: "/Tasks/Show/" + id });
 }
 
+function viewArchived(){
+	var selectedProject = $("#sel_project").val();
+	window.location.href = "/Tasks/Archived/" + selectedProject;
+}
+
 function addTask(){
 	$(".modal-title").html("New Task");
 	$("#modal").modal({ remote: "/Tasks/NewTask" });
@@ -71,7 +76,7 @@ function changeStatus(task_id, status_id, callback) {
 }
 
 function sortTasks() {
-	var elements = "#task-list-1, #task-list-2, #task-list-3, #task-list-4, #task-list-5, #task-list-6";
+	var elements = "#task-list-1, #task-list-2, #task-list-3, #task-list-4, #task-list-5, #task-list-6, #task-list-7";
 	$(elements).sortable("destroy");
 	$(elements).sortable({
 		connectWith: ".sortable",

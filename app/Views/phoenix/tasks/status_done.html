@@ -15,8 +15,8 @@
 			<h3>{$archived->name}</h3>
 		</header>
 		<section class="sortable" id="task-list-{$archived->id}" data-status-id="{$archived->id}"></section>
-		<button class="btn btn-task-section" onClick="refreshCards({$archived->id}, this);">
-			<i class="fa fa-refresh"></i> Load {$archived->name} tasks
+		<button class="btn btn-task-section" onClick="viewArchived();">
+			<i class="fa fa-eye"></i> View {$archived->name} tasks
 		</button>
 	</div>
 </div>

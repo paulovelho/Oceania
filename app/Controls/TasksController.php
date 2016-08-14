@@ -101,6 +101,21 @@ class TasksController extends BaseControl {
 		$this->display("phoenix/tasks/form.html");
 	}
 
+	public function Archived($project_id){
+		$this->Start();
+		$this->assign("title", "Archived Tasks");
+		$archived = Statuses::Get("archived");
+		$tasks = null;
+		if(!empty($project_id)) {
+			$tasks = $this->GetTasksFromProjectStatus($project_id, $archived->id);
+		} else {
+			$tasks = $archived->GetTasks();
+		}
+		$this->assign("tasks", $tasks);
+		$this->assign("page", "tasks-archived");
+		$this->display("phoenix/oceania.html");
+	}
+
 
 	// logic for displaying the box
 	private function StatusBoxDisplay($status, $project) {
