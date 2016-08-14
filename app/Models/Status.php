@@ -66,7 +66,7 @@ class StatusControl extends StatusControlBase {
 	}
 
 	public function GetByName($name) {
-		return $this->status[$this->arrStNames[$name]];
+		return @$this->status[$this->arrStNames[$name]];
 	}
 
 	public function GetById($id){

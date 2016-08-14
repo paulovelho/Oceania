@@ -1,8 +1,20 @@
 <div class="row-fluid">
-	<div id="list-backlog" class="span2 "></div>
-	<div id="list-todo" class="span2"></div>
-	<div id="list-wip" class="span2"></div>
-	<div id="list-homolog" class="span2"></div>
-	<div id="list-hold" class="span2"></div>
-	<div id="list-done" class="span2"></div>
+	<div class="span5">
+		{html_options name="sel_project" id="sel_project" class="span12" options=$projects selected=0 onchange="refreshBoard();"}
+	</div>
+	<div class="span7">
+		<button class="btn btn-success span 12" onClick="addTask();">
+			<i class="fa fa-plus-circle"></i> Add Task
+		</button>
+	</div>
+</div>
+<br/>
+
+<div class="row-fluid">
+	<div id="list-backlog" class="span2 task-list"></div>
+	<div id="list-todo" class="span2 task-list"></div>
+	<div id="list-wip" class="span2 task-list"></div>
+	<div id="list-homolog" class="span2 task-list"></div>
+	<div id="list-hold" class="span2 task-list"></div>
+	<div id="list-done" class="span2 task-list"></div>
 </div>

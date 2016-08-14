@@ -65,7 +65,7 @@ a:focus { outline: none; }
 /* --->> 3 - HEADER
 ------------------------------------------*/
 .navbar .brand { display: block; font-size: 20px; font-weight: bold; margin: auto; padding: 0; text-align: center; width: 120px; float: none; }
-/*.navbar .brand a { background: url(/images/layout/general/logo.png) no-repeat; width: 120px; height: 40px; text-indent: -9999px; float: left; }*/
+.navbar .brand a { background: url(/images/top-nav.png) no-repeat; width: 120px; height: 40px; text-indent: -9999px; float: left; }
 .navbar .brand a:hover { text-decoration: none; }
 
 /* --->> 4 - MAIN NAVIGATION

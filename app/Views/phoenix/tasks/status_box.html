@@ -3,8 +3,6 @@
     <h3>{$status->name}</h3>
 </header>
 <section class="sortable" id="task-list-{$status->id}" data-status-id="{$status->id}">
-	{foreach $tasks as $t}
-		{include file="phoenix/tasks/card.html" task=$t}
-	{/foreach}
+	{include file="phoenix/tasks/card-list.html" tasks=$tasks}
 </section>
 </div>

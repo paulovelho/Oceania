@@ -1,0 +1,12 @@
+<div class="span12 row-fluid">
+	<div class="widget table_basic_header span12">
+		<header>
+			<h3>{$status->name}</h3>
+		</header>
+		<section class="sortable" id="task-list-{$status->id}" data-status-id="{$status->id}"></section>
+		<button class="btn btn-task-section" onClick="refreshCards({$status->id}, this);">
+			<i class="fa fa-refresh"></i> Load {$status->name} tasks
+		</button>
+	</div>
+</div>
+

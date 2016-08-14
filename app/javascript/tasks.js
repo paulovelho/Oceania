@@ -1,7 +1,3 @@
-function updateList() {
-	LoadOnDiv("/Tasks/ShowList", "#taskList");	
-}
-
 function saveTask() {
 	var id = $("#add-task #task-id").val();
 	if(id > 0) updateTask();
@@ -11,8 +7,8 @@ function saveTask() {
 
 function insertTask() {
 	submitForm("#add-task", "/Tasks/Add", 
-		function(){
-			refreshBoard();
+		function(data){
+			refreshCards(data.status_id);
 			$('#modal').modal('hide');
 			$.jGrowl("Task Added", { header: 'Success', theme:"notification_styled_success" });			
 		}, function() {
@@ -23,8 +19,8 @@ function insertTask() {
 function updateTask() {
 	var title = $("#add-task #title").val();
 	submitForm("#add-task", "/Tasks/Update", 
-		function(){
-			refreshBoard();
+		function(data){
+			refreshCards(data.status_id);
 			$('#modal').modal('hide');
 			$.jGrowl("Task " + title + " Updated", { header: 'Success', theme:"notification_styled_success" });			
 		}, function() {
@@ -38,8 +34,8 @@ function deleteTask() {
 	if( !just_go )
 		return false;
 	submitForm("#add-task", "/Tasks/DeleteTask",
-		function(){
-			refreshBoard();
+		function(data){
+			refreshCards(data.status_id);
 			$('#modal').modal('hide');
 			$.jGrowl("Task " + title + " Deleted", { header: 'Success', theme:"notification_styled_success" });			
 		}, function() {
@@ -89,12 +85,21 @@ function sortTasks() {
 	});
 }
 
+function refreshCards(id, button) {
+	var sort = function(){ sortTasks(); }
+	var selectedProject = $("#sel_project").val();
+	LoadOnDiv("/Tasks/GetCards/" + id + ";" + selectedProject, "#task-list-" + id, sort);
+	if(button) $(button).fadeOut();
+}
+
 function refreshBoard(){
 	var sort = function(){ sortTasks(); }
-	LoadOnDiv("/Tasks/FromStatus/3", "#list-wip", sort);
-	LoadOnDiv("/Tasks/FromStatus/2", "#list-todo", sort);
-	LoadOnDiv("/Tasks/FromStatus/1", "#list-backlog", sort);
-	LoadOnDiv("/Tasks/FromStatus/4", "#list-hold", sort);
-	LoadOnDiv("/Tasks/FromStatus/5", "#list-homolog", sort);
-	LoadOnDiv("/Tasks/FromStatus/6", "#list-done", sort);
+	var selectedProject = $("#sel_project").val();
+	LoadOnDiv("/Tasks/GetWip/" + selectedProject, "#list-wip", sort);
+	LoadOnDiv("/Tasks/GetTodo/" + selectedProject, "#list-todo", sort);
+	LoadOnDiv("/Tasks/GetHomolog/" + selectedProject, "#list-homolog", sort);
+
+	LoadOnDiv("/Tasks/GetLazyBox/1", "#list-backlog", sort);
+	LoadOnDiv("/Tasks/GetLazyBox/4", "#list-hold", sort);
+	LoadOnDiv("/Tasks/GetDoneBox", "#list-done", sort);
 }

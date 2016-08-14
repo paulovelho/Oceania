@@ -11,3 +11,4 @@ app/plugins
 *_compressed.css
 *.magratheaDB
 phoenix-layout
+files/*

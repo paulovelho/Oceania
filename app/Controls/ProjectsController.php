@@ -50,7 +50,6 @@ class ProjectsController extends BaseControl {
 		$this->assign("project", $proj);
 		$this->display("phoenix/projects/form.html");
 	}
-
 }
 
 ?>
