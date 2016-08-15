@@ -1,6 +1,9 @@
 <div class="task-card" id="task-card-{$task->id}" data-task-id="{$task->id}">
 	<h4>{$task->title}</h4>
 	<hr/>
+	<div class="task-project-card">
+		<span><i class="fa fa-cube"></i> {$task->Project->name}</span>
+	</div>
 	<div class="task-card-action">
 		<i class="fa fa-pencil-square-o" onclick="viewTask({$task->id}, '{$task->title}');"></i>
 	</div>

@@ -22,6 +22,11 @@ class TasksController extends BaseControl {
 		$t->text = $_POST["text"];
 		$t->project_id = $_POST["project_id"];
 		$t->Insert();
+		$status = @$_POST["status_id"];
+		if( $status > 0 && $status != $t->status_id ) {
+			$t->ChangeStatus($status);
+		}
+		$t->Save();
 		return $this->Json( array('success' => true, 'data' => $t) );
 	}
 

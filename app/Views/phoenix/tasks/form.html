@@ -4,6 +4,7 @@
 				<div class="control-group">
 					<input class="span12" type="text" id="title" name="title" value="{$task->title}" required placeholder="Title" />
 					<input type="hidden" name="id" id="task-id" value="{$task->id}" />
+					<input type="hidden" name="status_id" id="task_status_id" value="0" />
 				</div>
 				<div class="control-group">
 					<textarea id="text" name="text" class="span12">{$task->text}</textarea>
@@ -11,7 +12,7 @@
 				<div class="control-group">
 					<label class="control-label">Project</label>
 					<div class="controls">
-						{html_options name=project_id class="span12" options=$projects selected=$task->project_id}
+						{html_options name="project_id" id="task_project_id" class="span12" options=$projects selected=$task->project_id}
 					</div>
 				</div>
 				<!--div class="control-group">

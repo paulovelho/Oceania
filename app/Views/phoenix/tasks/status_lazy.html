@@ -2,6 +2,7 @@
 	<div class="widget table_basic_header span12">
 		<header>
 			<h3>{$status->name}</h3>
+			<i class="fa fa-plus-circle add-task-status" onClick="addTaskStatus({$status->id});"></i>
 		</header>
 		<section class="sortable" id="task-list-{$status->id}" data-status-id="{$status->id}"></section>
 		<button class="btn btn-task-section" onClick="refreshCards({$status->id}, this);">
