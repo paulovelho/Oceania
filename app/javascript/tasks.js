@@ -126,7 +126,7 @@ function refreshBoard(){
 	var selected_project = selectedProject();
 	LoadOnDiv("/Tasks/GetWip/" + selected_project, "#list-wip", sort);
 	LoadOnDiv("/Tasks/GetTodo/" + selected_project, "#list-todo", sort);
-	LoadOnDiv("/Tasks/GetHomolog/" + selected_project, "#list-homolog", sort);
+	LoadOnDiv("/Tasks/GetHomologWaiting/" + selected_project, "#list-homolog-waiting", sort);
 
 	LoadOnDiv("/Tasks/GetLazyBox/1", "#list-backlog", sort);
 	LoadOnDiv("/Tasks/GetLazyBox/4", "#list-hold", sort);
