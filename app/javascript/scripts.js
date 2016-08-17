@@ -34,6 +34,9 @@ function postData(url, data, callback_success, callback_error) {
 }
 
 $(document).ready(function(){
-	$("#modal").on("hidden", function() { $(this).removeData("modal"); });
+	$("#modal").on("hidden", function() { 
+		$(".modal-body").html("");
+		$(this).removeData("modal"); 
+	});
 });
 
