@@ -150,9 +150,12 @@ class TasksController extends BaseControl {
 		$this->StatusBoxDisplay($status, $project_id);
 	}
 
-	public function GetHomolog($project_id) {
-		$status = Statuses::Get("homolog");
-		$this->StatusBoxDisplay($status, $project_id);
+	public function GetHomologWaiting($project_id) {
+		$homolog = Statuses::Get("homolog");
+		$waiting = Statuses::Get("waiting");
+		$this->assign("homolog", $homolog);
+		$this->assign("waiting", $waiting);
+		$this->display("phoenix/tasks/status_homolog_waiting.html");
 	}
 
 	public function GetTasksFromProjectStatus($project_id, $status_id) {

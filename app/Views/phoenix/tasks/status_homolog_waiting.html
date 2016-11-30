@@ -1,0 +1,26 @@
+<div class="row-fluid">
+	<div class="widget table_basic_header span12">
+		<header>
+			<h3>{$homolog->name}</h3>
+		</header>
+		<section class="sortable" id="task-list-{$homolog->id}" data-status-id="{$homolog->id}"></section>
+		<button class="btn btn-task-section" onClick="refreshCards({$homolog->id}, this);">
+			<i class="fa fa-refresh"></i> Load {$homolog->name} tasks
+		</button>
+	</div>
+</div>
+
+<div class="row-fluid">
+	<div class="widget table_basic_header span12">
+		<header>
+			<h3>{$waiting->name}</h3>
+		</header>
+		<section class="sortable" id="task-list-{$waiting->id}" data-status-id="{$waiting->id}"></section>
+		<button class="btn btn-task-section" onClick="refreshCards({$waiting->id}, this);">
+			<i class="fa fa-refresh"></i> Load {$waiting->name} tasks
+		</button>
+	</div>
+</div>
+
+
+
