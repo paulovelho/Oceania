@@ -7,7 +7,6 @@ class UserBase extends MagratheaModel implements iMagratheaModel {
 
 	public $id, $name, $email, $password;
 	public $created_at, $updated_at;
-	public $dbPk;
 	protected $autoload = null;
 
 	public function __construct(  $id=0  ){ 

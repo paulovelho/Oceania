@@ -7,7 +7,6 @@ class TaskBase extends MagratheaModel implements iMagratheaModel {
 
 	public $id, $project_id, $parent_task_id, $work_id, $title, $text, $cost, $status_id, $user_id, $creator_id;
 	public $created_at, $updated_at;
-	public $dbPk;
 	protected $autoload = null;
 
 	public function __construct(  $id=0  ){ 

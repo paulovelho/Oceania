@@ -2,7 +2,7 @@
 	include("inc/global.php");
 	include($magrathea_path."/MagratheaAdmin.php"); //  should already be declared
 
-	class LoginController extends MagratheaController {
+	class MagratheaLoginController extends MagratheaController {
 		public static function Login(){
 			if(@$_GET["error"] == "login_error")
 				self::GetSmarty()->assign("message", "Login or password incorrect!");
@@ -14,7 +14,7 @@
 		$admin = new MagratheaAdmin(); // adds the admin file
 		$admin->Load(); // load!
 	} else {
-		LoginController::Login();
+		MagratheaLoginController::Login();
 	}
 
 ?>

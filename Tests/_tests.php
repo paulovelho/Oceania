@@ -4,7 +4,7 @@
 		->LogQueries(true)
 		->SetTemp(MagratheaDebugger::DEV);
 	include("Controls/_Controller.php");
-	MagratheaController::IncludeAllControllers();
+//	MagratheaController::IncludeAllControllers();
 	MagratheaModel::IncludeAllModels();
 
 	MagratheaConfig::Instance()->SetDefaultEnvironment("tests");

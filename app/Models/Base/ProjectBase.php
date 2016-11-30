@@ -5,9 +5,8 @@
 
 class ProjectBase extends MagratheaModel implements iMagratheaModel {
 
-	public $id, $name, $image, $status_id, $start_date, $end_date;
+	public $id, $name, $image, $active, $status_id, $start_date, $end_date;
 	public $created_at, $updated_at;
-	public $dbPk;
 	protected $autoload = null;
 
 	public function __construct(  $id=0  ){ 
@@ -24,6 +23,7 @@ class ProjectBase extends MagratheaModel implements iMagratheaModel {
 		$this->dbValues["id"] = "int";
 		$this->dbValues["name"] = "string";
 		$this->dbValues["image"] = "int";
+		$this->dbValues["active"] = "int";
 		$this->dbValues["status_id"] = "int";
 		$this->dbValues["start_date"] = "datetime";
 		$this->dbValues["end_date"] = "datetime";

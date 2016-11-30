@@ -9,7 +9,7 @@ class TasksController extends BaseControl {
 
 	public function Index(){
 		$this->Start();
-		$this->assign("page", "tasks");
+		$this->assign("page", "tasks/index");
 		$projects = $this->LoadProjects();
 		$projects[0] = "- - - ALL - - -";
 		$this->assign("projects", $projects);
@@ -117,7 +117,7 @@ class TasksController extends BaseControl {
 			$tasks = $archived->GetTasks();
 		}
 		$this->assign("tasks", $tasks);
-		$this->assign("page", "tasks-archived");
+		$this->assign("page", "tasks/list");
 		$this->display("phoenix/oceania.html");
 	}
 
@@ -129,7 +129,7 @@ class TasksController extends BaseControl {
 		if(!empty($project))
 			$tasks = $this->GetTasksFromProjectStatus($project, $status->id);
 		else 
-			$tasks = $status->GetTasks();
+			$tasks = $status->GetActiveTasks();
 		$this->assign("tasks", $tasks);
 		$this->display("phoenix/tasks/status_box.html");
 	}

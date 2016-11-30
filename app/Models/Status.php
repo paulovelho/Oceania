@@ -25,6 +25,11 @@ class Status extends StatusBase {
 		parent::Update();
 		StatusControl::Instance()->Refresh();
 	}
+
+	function GetActiveTasks() {
+		return TaskControl::GetActiveTasks($this->id);
+	}
+
 }
 
 class Statuses {
@@ -36,7 +41,6 @@ class Statuses {
 	public static function GetAll() {
 		return StatusControl::Instance()->status;
 	}
-
 }
 
 class StatusControl extends StatusControlBase {

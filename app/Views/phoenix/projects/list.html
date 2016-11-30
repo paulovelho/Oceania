@@ -9,8 +9,8 @@
      <table class="table_basic">
             {foreach $projects as $p}
             <tr {if $p@iteration is even}class="even"{/if}>
-                <td>{$p->name}</td>
-                <td><i class="fa fa-eye" onclick="viewProject({$p->id});"></i></td>
+                <td class="pointer" onclick="viewProject('{$p->id}');">{$p->name}</td>
+                <td><i class="fa fa-circle {if $p->active}active{else}inactive{/if}"></i></td>
             </tr>
             {/foreach}
     </table>
