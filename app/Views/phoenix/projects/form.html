@@ -2,8 +2,12 @@
 	<form class="well form-horizontal" id="add-project" onsubmit="return saveProject();">
 		<fieldset>
 			<div class="control-group">
-				<input class="span12" type="text" id="name" name="name" value="{$project->name}" required placeholder="Name" />
 				<input type="hidden" name="id" id="project-id" value="{$project->id}" />
+				<input class="span12" type="text" id="name" name="name" value="{$project->name}" required placeholder="Name" />
+				<br/><br/>
+				<div class="row-fluid center">
+					<input class="ibutton-active" type="checkbox" name="active" value="1" {if $project->active}checked="checked{/if}"/>
+				</div>
 			</div>
 			<div class="form-actions">
 				<button type="submit" class="btn btn-success">
@@ -19,3 +23,11 @@
 	</form>
 </section>
 
+<script type="text/javascript">
+$(document).ready(function(){
+	console.info
+	$(".ibutton-active").iButton({
+		labelOn: "ativo", labelOff: "inativo", easing: 'easeOutBounce', duration: 500
+	});
+});
+</script>

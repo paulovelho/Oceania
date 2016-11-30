@@ -7,7 +7,6 @@ class StatusChangeBase extends MagratheaModel implements iMagratheaModel {
 
 	public $id, $task_id, $old_status, $new_status, $timestamp;
 	public $created_at, $updated_at;
-	public $dbPk;
 	protected $autoload = null;
 
 	public function __construct(  $id=0  ){ 

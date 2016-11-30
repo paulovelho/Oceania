@@ -22,6 +22,13 @@ class ProjectControl extends ProjectControlBase {
 			->Where(" name LIKE '%".$query."%' ");
 		return self::Run($query);
 	}
+
+	public static function GetActive(){
+		$query = MagratheaQuery::Select()
+			->Obj(new Project)
+			->Where(array('active' => 1));
+		return self::Run($query);
+	}
 }
 
 ?>

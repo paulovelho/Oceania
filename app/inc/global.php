@@ -13,7 +13,7 @@
 
   // debugging settings:
   // options: dev; debug; log; none;
-  MagratheaDebugger::Instance()->SetType(MagratheaDebugger::LOG)->LogQueries(false);
+  MagratheaDebugger::Instance()->SetType(MagratheaDebugger::DEBUG)->LogQueries(false);
 
   $Smarty = new Smarty();
   $Smarty->template_dir = $site_path."/app/Views/";

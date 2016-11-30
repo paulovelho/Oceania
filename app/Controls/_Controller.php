@@ -17,7 +17,7 @@ class BaseControl extends MagratheaController {
   }
 
   protected function LoadProjects() {
-    $projects = ProjectControl::GetAll();
+    $projects = ProjectControl::GetActive();
     $projs = array();
     foreach ($projects as $p) {
       $projs[$p->id] = $p->name;

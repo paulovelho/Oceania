@@ -37,6 +37,14 @@ class TaskControl extends TaskControlBase {
 		return self::Run($query);
 	}
 
+	public static function GetActiveTasks($status_id) {
+		$query = MagratheaQuery::Select()
+			->Obj(new Task())
+			->HasOne(new Project(), "project_id")
+			->Where( array( "projects.active" => 1, "tasks.status_id" => $status_id) );
+		return self::Run($query);
+	}
+
 	function GetFromProjectStatus($project_id, $status_id){
 		$query = MagratheaQuery::Select()
 			->Obj(new Task)

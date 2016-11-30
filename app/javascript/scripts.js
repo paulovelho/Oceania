@@ -39,4 +39,3 @@ $(document).ready(function(){
 		$(this).removeData("modal"); 
 	});
 });
-

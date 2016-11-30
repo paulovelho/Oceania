@@ -7,7 +7,6 @@ class WorkBase extends MagratheaModel implements iMagratheaModel {
 
 	public $id, $project_id, $title, $text, $status_id, $user_id;
 	public $created_at, $updated_at;
-	public $dbPk;
 	protected $autoload = null;
 
 	public function __construct(  $id=0  ){ 

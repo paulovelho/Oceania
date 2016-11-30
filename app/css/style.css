@@ -1,3 +1,14 @@
+/* --- GENERAL --- */
+.pointer {
+	cursor: pointer;
+}
+.fa-circle.active {
+	color: green;
+}
+.fa-circle.inactive {
+	color: red;
+}
+
 /* --- NAV BAR --- */
 .navbar .main_nav > li > a {
 	font-size: 20px;
@@ -60,7 +71,6 @@ textarea {
 	padding: 2px 10px;
 	border-radius: 5px;
 }
-
 
 .btn-task-section {
 	width: 100%;

@@ -1,10 +1,9 @@
 function projectsList() {
-	LoadOnDiv("/Projects/ShowList", "#projectsList");	
+	LoadOnDiv("/Projects/ShowList", "#projectsList");
 }
 
 function addProject(){
-	$(".modal-title").html("New Project");
-	$("#modal").modal({ remote: "/Projects/NewProject" });
+	LoadOnDiv("/Projects/NewProject", "#projectsDetails");
 }
 
 function saveProject() {
@@ -15,9 +14,9 @@ function saveProject() {
 }
 
 function insertProject() {
+	console.info("inserting project");
 	submitForm("#add-project", "/Projects/Add", 
 		function(){
-			projectsList();
 			$('#modal').modal('hide');
 			$.jGrowl("Project Added", { header: 'Success', theme:"notification_styled_success" });			
 		}, function() {
@@ -30,6 +29,7 @@ function updateProject() {
 	submitForm("#add-project", "/Projects/Update", 
 		function(){
 			projectsList();
+			$("#projectsDetails").html("");
 			$('#modal').modal('hide');
 			$.jGrowl("Project " + title + " Updated", { header: 'Success', theme:"notification_styled_success" });			
 		}, function() {
@@ -53,10 +53,8 @@ function deleteProject() {
 	return false;
 }
 
-function viewProject(id, title) {
-	if(title == null) title = "Project";
-	$(".modal-title").html(title);
-	$("#modal").modal({ remote: "/Projects/Show/" + id });
+function viewProject(id) {
+	LoadOnDiv("/Projects/Show/"+id, "#projectsDetails");
 }
 
 
