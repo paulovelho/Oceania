@@ -1,0 +1,17 @@
+<div class="widget table_basic_header">
+<header>
+    <h3>{$project->name}</h3>
+    <ul class="toggle_content">
+        <li class="arrow"><a href="#">Toggle Content</a></li>
+    </ul>
+</header>
+<section>
+     <table class="table_basic">
+            {foreach $project->Tasks as $task}
+            <tr {if $p@iteration is even}class="even"{/if}>
+                <td class="pointer" onclick="viewProject('{$p->id}');">{$task->name}</td>
+            </tr>
+            {/foreach}
+    </table>
+</section>
+</div>
