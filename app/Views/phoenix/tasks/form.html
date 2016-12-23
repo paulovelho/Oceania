@@ -1,34 +1,40 @@
-	<section class="row-fluid">
-		<form class="well form-horizontal" id="add-task" onsubmit="return saveTask();">
-			<fieldset>
-				<div class="control-group">
-					<input class="span12" type="text" id="title" name="title" value="{$task->title}" required placeholder="Title" />
-					<input type="hidden" name="id" id="task-id" value="{$task->id}" />
-					<input type="hidden" name="status_id" id="task_status_id" value="0" />
-				</div>
-				<div class="control-group">
-					<textarea id="text" name="text" class="span12">{$task->text}</textarea>
-				</div>
-				<div class="control-group">
-					<label class="control-label">Project</label>
-					<div class="controls">
-						{html_options name="project_id" id="task_project_id" class="span12" options=$projects selected=$task->project_id}
-					</div>
-				</div>
-				<!--div class="control-group">
-					{html_options name=status_id class="span12" options=$status selected=$task->status_id}
-				</div-->
-				<div class="form-actions">
-					<button type="submit" class="btn btn-success">
-						<i class="fa fa-save"></i> Save
-					</button>
-					{if $task->id}
-					<button class="btn btn-danger" onClick="deleteTask(); return false;" > 
-						<i class="fa fa-trash-o"></i> Delete
-					</button>
-					{/if}
-				</div>
-			</fieldset>
-		</form>
-	</section>
+<section class="row-fluid task-box">
+	<form id="add-task">
+		<div class="control-group" id="task-title-edit" style="display: none;"">
+			<input class="span12" type="text" id="title" name="title" value="{$task->title}" required placeholder="Title" />
+			<input type="hidden" name="id" id="task-id" value="{$task->id}" />
+			<input type="hidden" name="status_id" id="task_status_id" value="0" />
+		</div>
+		<div class="control-group" id="task-desc-edit" style="display: none;">
+			<textarea id="text" name="text" class="span12 markdown-input">{$task->text}</textarea>
+		</div>
+		<div class="control-group well" id="task-desc" onClick="toggleEdit();">
+			<div class="markdown-output"></div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">Project</label>
+			<div class="controls">
+				{html_options name="project_id" id="task_project_id" class="span12" options=$projects selected=$task->project_id}
+			</div>
+		</div>
+	</form>
+	<!--div class="control-group">
+		{html_options name=status_id class="span12" options=$status selected=$task->status_id}
+	</div-->
+	<div class="form-actions">
+		<button type="button" class="btn btn-success" onClick="saveTask();">
+			<i class="fa fa-save"></i> Save
+		</button>
+		{if $task->id}
+		<button class="btn btn-danger" onClick="deleteTask(); return false;" > 
+			<i class="fa fa-trash-o"></i> Delete
+		</button>
+		{/if}
+	</div>
+</section>
 
+<script type="text/javascript">
+$(document).ready(function(){
+	markdownIt();
+});
+</script>

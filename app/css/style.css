@@ -50,6 +50,17 @@ textarea {
 .task-card-action i {
 	cursor: pointer;
 }
+
+.task-box .control-box {
+	margin-bottom: 0;
+}
+.task-box .well {
+	margin-bottom: 5px;
+}
+.task-box .form-actions {
+	margin-top: 5px;
+}
+
 .add-task-status {
 	float: right;
 	margin: 10px 10px;
