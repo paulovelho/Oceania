@@ -14,14 +14,17 @@
 	
 	try {
 		MagratheaView::Instance()
+			->IncludeCSS("css/markdown.css")
 			->IncludeCSS("css/layout/theme.css")
 			->IncludeCSS("css/common.css")
 			->IncludeCSS("css/style.css")
+			->IncludeJavascript("javascript/libs/markdown.js")
 			->IncludeJavascript("javascript/layout/common.js")
 			->IncludeJavascript("javascript/layout/script.js")
 			->IncludeJavascript("javascript/scripts.js")
 			->IncludeJavascript("javascript/projects.js")
-			->IncludeJavascript("javascript/tasks.js");
+			->IncludeJavascript("javascript/tasks-page.js")
+			->IncludeJavascript("javascript/task.js");
 
 		// JAVASCRIPTS:
 		/**

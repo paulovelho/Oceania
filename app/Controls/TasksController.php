@@ -152,7 +152,7 @@ class TasksController extends BaseControl {
 
 	public function GetHomologWaiting($project_id) {
 		$homolog = Statuses::Get("homolog");
-		$waiting = Statuses::Get("waiting");
+		$waiting = Statuses::Get("on-hold");
 		$this->assign("homolog", $homolog);
 		$this->assign("waiting", $waiting);
 		$this->display("phoenix/tasks/status_homolog_waiting.html");
