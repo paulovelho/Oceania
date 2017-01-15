@@ -17,9 +17,9 @@ function addTask(){
 }
 
 function addTaskStatus(status_id) {
+	var project_id = selectedProject();
 	modalOpen("/Tasks/NewTask", "NewTask", function() {
-		var sel_project = selectedProject();
-		$("#task_project_id").val(sel_project);
+		$("#task_project_id").val(project_id);
 		$("#task_status_id").val(status_id);
 	});
 }

@@ -32,7 +32,7 @@ function modalOpen(url, title, onOpen) {
 		width: "60%"
 	};
 	if ( onOpen ) {
-		cbox.onOpen = onOpen;
+		cbox.onComplete = onOpen;
 	}
 	$.colorbox(cbox);
 }
