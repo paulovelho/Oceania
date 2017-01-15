@@ -58,7 +58,16 @@ function refreshCards(id, button) {
 	var sort = function(){ sortTasks(); }
 	var selected_project = selectedProject();
 	LoadOnDiv("/Tasks/GetCards/" + id + ";" + selected_project, "#task-list-" + id, sort);
-	if(button) $(button).fadeOut();
+	if(button) $(button).slideToggle();
+}
+
+function archiveAll(button) {
+	var selected_project = selectedProject();
+	postData("/Tasks/ArchiveAll/" + selected_project, function() {
+		refreshBoard();
+	}, function() {
+		alert("error");
+	});
 }
 
 function refreshBoard(){
