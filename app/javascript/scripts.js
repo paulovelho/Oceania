@@ -36,10 +36,3 @@ function postData(url, data, callback_success, callback_error) {
 function markdownIt() {
 	$('.markdown-output').html($('.markdown-input').parseAsMarkdown());
 }
-
-$(document).ready(function(){
-	$("#modal").on("hidden", function() { 
-		$(".modal-body").html("");
-		$(this).removeData("modal"); 
-	});
-});

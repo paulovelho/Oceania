@@ -11,16 +11,19 @@
 	include("plugins/bootstrap2/load.php");
 	include("plugins/font-awesome4/load.php");
 	include("plugins/ibutton/load.php");
-	
+	include("plugins/colorbox/load.php");
+
 	try {
 		MagratheaView::Instance()
-			->IncludeCSS("css/markdown.css")
 			->IncludeCSS("css/layout/theme.css")
+			->IncludeCSS("css/markdown.css")
+			->IncludeCSS("css/modal.css")
 			->IncludeCSS("css/common.css")
 			->IncludeCSS("css/style.css")
 			->IncludeJavascript("javascript/libs/markdown.js")
 			->IncludeJavascript("javascript/layout/common.js")
 			->IncludeJavascript("javascript/layout/script.js")
+			->IncludeJavascript("javascript/modaler.js")
 			->IncludeJavascript("javascript/scripts.js")
 			->IncludeJavascript("javascript/projects.js")
 			->IncludeJavascript("javascript/tasks-page.js")
