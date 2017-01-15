@@ -2,6 +2,7 @@ configs/magrathea.conf
 logs
 app/inc/config.php
 app/images/medias
+app/Models/Base/*
 app/Views/_cache
 app/Views/_compiled
 app/javascript/_compressed
