@@ -63,10 +63,14 @@ function refreshCards(id, button) {
 
 function archiveAll(button) {
 	var selected_project = selectedProject();
-	postData("/Tasks/ArchiveAll/" + selected_project, function() {
+	if( selected_project == 0 ) {
+		$.jGrowl("Select a project to archive tasks", { header: 'Error', theme:"notification_styled_error" });
+	}
+	postData("/Tasks/ArchiveAll/" + selected_project, null, function(data) {
+		$.jGrowl("Tasks Archived", { header: 'Done!', theme:"notification_styled_success" });
 		refreshBoard();
-	}, function() {
-		alert("error");
+	}, function(data) {
+		$.jGrowl(data, { header: 'Error', theme:"notification_styled_error" });
 	});
 }
 

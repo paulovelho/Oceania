@@ -108,7 +108,7 @@ class TasksController extends BaseControl {
 
 	public function ArchiveAll($project_id){
 		if(empty($project_id)) {
-			return $this->Json( array('success' => false, 'message' => "incorrect project id") );
+			return $this->Json( array('success' => false, 'error' => "incorrect project id") );
 		}
 		$tControl = new TaskControl();
 		$tControl->ArchiveDoneFromProject($project_id);
