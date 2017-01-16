@@ -17,7 +17,7 @@ function insertProject() {
 	console.info("inserting project");
 	submitForm("#add-project", "/Projects/Add", 
 		function(){
-			$('#modal').modal('hide');
+			modalClose();
 			$.jGrowl("Project Added", { header: 'Success', theme:"notification_styled_success" });			
 		}, function() {
 			alert("error!");
@@ -30,7 +30,7 @@ function updateProject() {
 		function(){
 			projectsList();
 			$("#projectsDetails").html("");
-			$('#modal').modal('hide');
+			modalClose();
 			$.jGrowl("Project " + title + " Updated", { header: 'Success', theme:"notification_styled_success" });			
 		}, function() {
 			alert("error!");
@@ -45,7 +45,7 @@ function deleteProject() {
 	submitForm("#add-project", "/Projects/DeleteProject",
 		function(){
 			projectsList();
-			$('#modal').modal('hide');
+			modalClose();
 			$.jGrowl("Project " + title + " Deleted", { header: 'Success', theme:"notification_styled_success" });			
 		}, function() {
 			alert("error!");

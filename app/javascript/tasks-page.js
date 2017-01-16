@@ -4,8 +4,7 @@ function selectedProject() {
 
 function viewTask(id, title) {
 	if(title == null) title = "Task";
-	$(".modal-title").html(title);
-	$("#modal").modal({ remote: "/Tasks/Show/" + id });
+	modalOpen("/Tasks/Show/" + id, title);
 }
 
 function viewArchived(){
@@ -14,28 +13,15 @@ function viewArchived(){
 }
 
 function addTask(){
-	$(".modal-title").html("New Task");
-	$("#modal").modal({ 
-		remote: "/Tasks/NewTask" 
-	});
-	$("#modal").on("shown", function() {
-		var sel_project = selectedProject();
-		$("#task_project_id").val(sel_project);
-		$("#modal").off("shown");
-	});
+	modalOpen("/Tasks/NewTask", "New Task");
 }
 
 function addTaskStatus(status_id) {
-	$(".modal-title").html("New Task");
-	$("#modal").modal({ 
-		remote: "/Tasks/NewTask" 
-	});
-	$("#modal").on("shown", function() {
-		var sel_project = selectedProject();
-		$("#task_project_id").val(sel_project);
+	var project_id = selectedProject();
+	modalOpen("/Tasks/NewTask", "NewTask", function() {
+		$("#task_project_id").val(project_id);
 		$("#task_status_id").val(status_id);
-		$("#modal").off("shown");
-	});	
+	});
 }
 
 function changeStatus(task_id, status_id, callback) {
@@ -43,7 +29,7 @@ function changeStatus(task_id, status_id, callback) {
 			task_id: task_id,
 			status_id: status_id
 		}, function() {
-			$('#modal').modal('hide');
+			modalClose();
 			$.jGrowl("Status Changed", { header: 'Success', theme:"notification_styled_success" });
 			if( callback ) {
 				callback();

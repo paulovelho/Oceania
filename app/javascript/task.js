@@ -9,8 +9,7 @@ function insertTask() {
 	submitForm("#add-task", "/Tasks/Add", 
 		function(data){
 			refreshCards(data.status_id);
-			$(".modal-title").html($("#title").val());
-			toggleEdit();
+			addTask();
 			$.jGrowl("Task Added", { header: 'Success', theme:"notification_styled_success" });			
 		}, function() {
 			alert("error!");
@@ -22,7 +21,7 @@ function updateTask() {
 	submitForm("#add-task", "/Tasks/Update", 
 		function(data){
 			refreshCards(data.status_id);
-			$(".modal-title").html($("#title").val());
+			markdownIt();
 			toggleEdit();
 			$.jGrowl("Task " + title + " Updated", { header: 'Success', theme:"notification_styled_success" });			
 		}, function() {
@@ -38,7 +37,7 @@ function deleteTask() {
 	submitForm("#add-task", "/Tasks/DeleteTask",
 		function(data){
 			refreshCards(data.status_id);
-			$('#modal').modal('hide');
+			modalClose();
 			$.jGrowl("Task " + title + " Deleted", { header: 'Success', theme:"notification_styled_success" });			
 		}, function() {
 			alert("error!");
@@ -47,7 +46,6 @@ function deleteTask() {
 }
 
 function toggleEdit() {
-	console.info("toggle");
 	$("#task-desc").toggle();
 	$("#task-desc-edit").toggle();
 	$("#task-title-edit").toggle();
