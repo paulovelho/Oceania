@@ -106,6 +106,15 @@ class TasksController extends BaseControl {
 		$this->display("phoenix/tasks/form.html");
 	}
 
+	public function ArchiveAll($project_id){
+		if(empty($project_id)) {
+			return $this->Json( array('success' => false, 'message' => "incorrect project id") )
+		}
+		$tControl = new TaskControl();
+		$tControl->ArchiveDoneFromProject($project_id);
+		return $this->Json( array('success' => true) );
+	}
+
 	public function Archived($project_id){
 		$this->Start();
 		$this->assign("title", "Archived Tasks");

@@ -4,8 +4,11 @@
 			<h3>{$done->name}</h3>
 		</header>
 		<section class="sortable" id="task-list-{$done->id}" data-status-id="{$done->id}"></section>
-		<button class="btn btn-task-section" onClick="refreshCards({$done->id}, this);">
+		<button class="btn btn-task-section" onClick="refreshCards({$done->id}, this); $('#bt-archive').slideToggle()">
 			<i class="fa fa-refresh"></i> Load {$done->name} tasks
+		</button>
+		<button class="btn btn-task-section" id="bt-archive" onClick="archiveAll();" style="display: none;">
+			<i class="fa fa-archive"></i> Archive tasks
 		</button>
 	</div>
 </div>
