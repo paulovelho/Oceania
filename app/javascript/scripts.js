@@ -27,7 +27,9 @@ function postData(url, data, callback_success, callback_error) {
 			if( data.success ) {
 				callback_success(data.data);
 			} else {
-				callback_error(data.error);
+				if (callback_error) {
+					callback_error(data.error);
+				}
 			}
 		}
 	});
