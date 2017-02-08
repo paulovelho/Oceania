@@ -2172,7 +2172,7 @@ div.jGrowl div.notification_styled_info div.jGrowl-header, div.jGrowl div.notifi
 .login_cont .login_switcher .login_s:hover span, .login_cont .login_switcher .login_s.akt span { background-position: 0 -180px; }
 .login_cont .login_switcher .login_f span { background-position: 0 -240px; }
 .login_cont .login_switcher .login_f:hover span, .login_cont .login_switcher .login_f.akt span { background-position: 0 -300px; }
-.login_cont h2 { display: block; float: left; margin: 25px 0; width: 100%; text-indent: 200%; white-space: nowrap; overflow: hidden; background: url('/images/layout/general/login/login.png') no-repeat center 5px; }
+.login_cont h2 { display: block; float: left; margin: 25px 0; width: 100%; text-indent: 200%; white-space: nowrap; overflow: hidden; background: url('/images/top-nav.png') no-repeat center 5px; }
 .login_cont.sign_up h2 { background: url('/images/layout/general/login/signup.png') no-repeat center 5px; }
 .login_cont.forgot h2 { background: url('/images/layout/general/login/forgotpw.png') no-repeat center 5px; }
 .login_cont .login_form { float: left; width: 100%; }
