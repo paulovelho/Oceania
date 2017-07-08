@@ -1,0 +1,22 @@
+<div class="widget table_basic_header">
+    <header>
+        <h3>Project: {$project->name}</h3>
+    </header>
+</div>
+
+{include file="phoenix/projects/form.html"}
+
+<input type="text" name="sel_project" id="sel_project" value="{$project->id}" />
+
+<div class="row-fluid all-tasks" id="task-board">
+<div id="list-backlog" class="span2 task-list"></div>
+<div id="list-todo" class="span3 task-list"></div>
+<div id="list-wip" class="span3 task-list"></div>
+<div id="list-homolog-waiting" class="span2 task-list"></div>
+<div id="list-done" class="span2 task-list"></div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    refreshBoard();
+});
+</script>

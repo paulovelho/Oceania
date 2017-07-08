@@ -9,8 +9,9 @@
      <table class="table_basic">
             {foreach $projects as $p}
             <tr {if $p@iteration is even}class="even"{/if}>
-                <td class="pointer" onclick="viewProject('{$p->id}');">{$p->name}</td>
+                <td class="pointer" onclick="window.location.href='/Projects/{$p->id}'">{$p->name}</td>
                 <td><i class="fa fa-circle {if $p->active}active{else}inactive{/if}"></i></td>
+                <td class="pointer" onclick="viewProject('{$p->id}');"><i class="fa fa-pencil"></i></td>
             </tr>
             {/foreach}
     </table>

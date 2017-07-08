@@ -8,6 +8,9 @@
 .fa-circle.inactive {
 	color: red;
 }
+.center {
+	text-align: center;
+}
 
 /* --- NAV BAR --- */
 .navbar .main_nav > li > a {
