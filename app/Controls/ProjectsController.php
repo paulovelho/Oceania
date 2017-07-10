@@ -13,6 +13,15 @@ class ProjectsController extends BaseControl {
 		$this->display("phoenix/oceania.html");
 	}
 
+	public function Def($project_id) {
+		$this->Start();
+		$this->CheckLogin();
+		$p = new Project($project_id);
+		$this->assign("project", $p);
+		$this->assign("page", "projects/project");
+		$this->display("phoenix/oceania.html");
+	}
+
 	public function Add() {
 		$p = new Project();
 		$p->name = $_POST["name"];

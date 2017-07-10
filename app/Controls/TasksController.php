@@ -90,10 +90,13 @@ class TasksController extends BaseControl {
 		$this->display("phoenix/tasks/list.html");
 	}
 
-	public function NewTask() {
+	public function NewTask($project_id) {
 		$task = new Task();
 		$this->LoadStatus();
 		$this->assign("task", $task);
+		if (!empty($project_id)) {
+			$this->assign("project", new Project($project_id));
+		}
 		$this->assign("projects", $this->LoadProjects());
 		$this->display("phoenix/tasks/form.html");
 	}

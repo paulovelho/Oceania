@@ -1,23 +1,31 @@
 <section class="row-fluid">
-	<form class="well form-horizontal" id="add-project" onsubmit="return saveProject();">
+	<form class="well form-horizontal" id="add-project" onsubmit="return false;">
 		<fieldset>
-			<div class="control-group">
-				<input type="hidden" name="id" id="project-id" value="{$project->id}" />
-				<input class="span12" type="text" id="name" name="name" value="{$project->name}" required placeholder="Name" />
-				<br/><br/>
-				<div class="row-fluid center">
+			<div class="control-group row-fluid">
+				<div class="span7 center">
+					<input type="hidden" name="id" id="project-id" value="{$project->id}" />
+					<input class="span12" type="text" id="name" name="name" value="{$project->name}" required placeholder="Name" />
+				</div>
+				<div class="span5 center">
 					<input class="ibutton-active" type="checkbox" name="active" value="1" {if $project->active}checked="checked{/if}"/>
 				</div>
 			</div>
-			<div class="form-actions">
-				<button type="submit" class="btn btn-success">
-					<i class="fa fa-save"></i> Save
-				</button>
-				{if $project->id}
-				<button class="btn btn-danger" onClick="deleteProject(); return false;" > 
-					<i class="fa fa-trash-o"></i> Delete
-				</button>
-				{/if}
+			<div class="row-fluid">
+				<div class="span7 center">
+					<button class="btn btn-success span6" onClick="addTask({$project->id});">
+						<i class="fa fa-plus-circle"></i> Add Task
+					</button>
+				</div>
+				<div class="span5">
+					<button class="btn btn-success" onClick="saveProject(); return false;">
+						<i class="fa fa-save"></i> Save
+					</button>
+					{if $project->id}
+					<button class="btn btn-danger" onClick="deleteProject(); return false;" > 
+						<i class="fa fa-trash-o"></i> Delete
+					</button>
+					{/if}
+				</div>
 			</div>
 		</fieldset>
 	</form>

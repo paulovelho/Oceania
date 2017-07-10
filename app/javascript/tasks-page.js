@@ -12,8 +12,8 @@ function viewArchived(){
 	window.location.href = "/Tasks/Archived/" + selected_project;
 }
 
-function addTask(){
-	modalOpen("/Tasks/NewTask", "New Task");
+function addTask(projectId){
+	modalOpen("/Tasks/NewTask/" + projectId, "New Task");
 }
 
 function addTaskStatus(status_id) {
