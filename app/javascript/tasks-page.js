@@ -13,6 +13,10 @@ function viewArchived(){
 }
 
 function addTask(projectId){
+	if (projectId == null || projectId == undefined) {
+		projectId = $("#sel_project").val();
+		projectId = parseInt(projectId);
+	}
 	modalOpen("/Tasks/NewTask/" + projectId, "New Task");
 }
 

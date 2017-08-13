@@ -2,6 +2,7 @@ function saveTask() {
 	var id = $("#add-task #task-id").val();
 	if(id > 0) updateTask();
 	else insertTask();
+	modalClose();
 	return false;
 }
 
