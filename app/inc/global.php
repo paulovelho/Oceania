@@ -21,6 +21,7 @@
   $Smarty->config_dir   = $site_path."/app/Views/_configs";
   $Smarty->cache_dir    = $site_path."/app/Views/_cache";
   $Smarty->configLoad("site.conf");
+  $Smarty->error_reporting = E_ALL & ~E_NOTICE;
   
   // initialize the MagratheaView and sets it to Smarty 
   $Smarty->assign("View", MagratheaView::Instance());

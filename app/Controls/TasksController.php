@@ -105,8 +105,21 @@ class TasksController extends BaseControl {
 		$t = new Task($id);
 		$this->LoadStatus();
 		$this->assign("task", $t);
-		$this->assign("projects", $this->LoadProjects());
+		$this->assign("project", $t->GetProject());
 		$this->display("phoenix/tasks/form.html");
+	}
+
+	public function Open($id) {
+		$this->CheckLogin();
+
+		$t = new Task($id);
+		$this->assign("title", $t->title);
+
+		$this->LoadStatus();
+		$this->assign("task", $t);
+		$this->assign("projects", $this->LoadProjects());
+		$this->assign("page", "task/view");
+		$this->display("phoenix/oceania.html");
 	}
 
 	public function ArchiveAll($project_id){

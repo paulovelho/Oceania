@@ -5,6 +5,7 @@
 		<span><i class="fa fa-cube"></i> {$task->Project->name}</span>
 	</div>
 	<div class="task-card-action">
+		<i class="fa fa-cog" onclick="openTask({$task->id});"></i>
 		<i class="fa fa-pencil-square-o" onclick="viewTask({$task->id}, '{$task->title}');"></i>
 	</div>
 </div>

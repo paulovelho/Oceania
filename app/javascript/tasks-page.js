@@ -7,6 +7,10 @@ function viewTask(id, title) {
 	modalOpen("/Tasks/Show/" + id, title);
 }
 
+function openTask(id) {
+	window.location.href = "/Tasks/Open/" + id;
+}
+
 function viewArchived(){
 	var selected_project = $("#sel_project").val();
 	window.location.href = "/Tasks/Archived/" + selected_project;
