@@ -12,9 +12,11 @@
 			</div>
 			<div class="row-fluid">
 				<div class="span7 center">
+					{if $project->id}
 					<button class="btn btn-success span6" onClick="addTask({$project->id});">
 						<i class="fa fa-plus-circle"></i> Add Task
 					</button>
+					{/if}
 				</div>
 				<div class="span5">
 					<button class="btn btn-success" onClick="saveProject(); return false;">

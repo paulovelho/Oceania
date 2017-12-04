@@ -1,0 +1,56 @@
+<form id="add-task">
+	<section class="row-fluid task-box">
+		<div class="span8">
+			<div class="control-group" id="task-title-edit" style="display: none;">
+				<input class="span12" type="text" id="title" name="title" value="{$task->title}" required placeholder="Title" />
+				<input type="hidden" name="id" id="task-id" value="{$task->id}" />
+				<input type="hidden" name="status_id" id="task_status_id" value="0" />
+			</div>
+			<div class="control-group" id="task-desc-edit" style="display: none;">
+				<textarea id="text" name="text" class="span12 markdown-input">{$task->text}</textarea>
+			</div>
+			{if $task->id > 0}
+			<div class="control-group well" id="task-desc" onClick="toggleEdit();">
+				<div class="markdown-output"></div>
+			</div>
+			{/if}
+			<br/>
+			<hr/>
+			<a href="/Tasks">&lt;&lt; Back to tasks...</a>
+			<br/>
+		</div>
+		<div class="span4">
+			<div class="control-group">
+				<label class="control-label">Project</label>
+				<div class="controls">
+					{html_options name="project_id" id="task_project_id" class="span12" options=$projects selected=$task->project_id}
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">Status</label>
+				<div class="controls">
+					{html_options name=status_id class="span12" options=$status selected=$task->status_id}
+				</div>
+			</div>
+			<div class="form-actions">
+				<button type="button" class="btn btn-success" onClick="saveTask();">
+					<i class="fa fa-save"></i> Save
+				</button>
+				{if $task->id}
+				<button class="btn btn-danger" onClick="deleteTask(); return false;" > 
+					<i class="fa fa-trash-o"></i> Delete
+				</button>
+				{/if}
+			</div>
+		</div>
+	</section>
+</form>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	markdownIt();
+	{if $task->id == 0}
+		toggleEdit();
+	{/if}
+});
+</script>
