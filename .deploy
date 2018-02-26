@@ -1,0 +1,7 @@
+
+echo -e "deploying oceania... \n"
+
+cd oceania/site
+git pull
+
+
