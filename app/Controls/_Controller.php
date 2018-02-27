@@ -25,6 +25,15 @@ class BaseControl extends MagratheaController {
     return $projs;
   }
 
+  protected function LoadAllProjects() {
+    $projects = ProjectControl::GetAll();
+    $projs = array();
+    foreach ($projects as $p) {
+      $projs[$p->id] = $p->name;
+    }
+    return $projs;
+  }
+
   public function CheckLogin() {
     if( !$this->IsLogged() )
       $this->ForwardTo("Login", "Index");

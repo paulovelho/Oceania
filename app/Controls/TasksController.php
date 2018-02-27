@@ -117,7 +117,7 @@ class TasksController extends BaseControl {
 
 		$this->LoadStatus();
 		$this->assign("task", $t);
-		$this->assign("projects", $this->LoadProjects());
+		$this->assign("projects", $this->LoadAllProjects());
 		$this->assign("page", "task/view");
 		$this->display("phoenix/oceania.html");
 	}
