@@ -21,6 +21,8 @@ class TasksController extends BaseControl {
 		$t->title = $_POST["title"];
 		$t->text = $_POST["text"];
 		$t->project_id = $_POST["project_id"];
+		$t->work_id = @intval($_POST["work_id"]);
+		$t->expectation = @intval($_POST["expectation"]);
 		$t->Insert();
 		$status = @$_POST["status_id"];
 		if( $status > 0 && $status != $t->status_id ) {
@@ -35,12 +37,66 @@ class TasksController extends BaseControl {
 		$t->title = $_POST["title"];
 		$t->text = $_POST["text"];
 		$t->project_id = $_POST["project_id"];
+		$t->work_id = @intval($_POST["work_id"]);
+		$t->expectation = @intval($_POST["expectation"]);
 		$status = @$_POST["status_id"];
 		if( $status > 0 && $status != $t->status_id ) {
 			$t->ChangeStatus($status);
 		}
 		$t->Save();
 		return $this->Json( array('success' => true, 'data' => $t) );
+	}
+
+	public function Bulk() {
+		$project = $_POST["project_id"];
+		$work = $_POST["work_id"];
+		$bulk = $_POST["bulk"];
+		$tasks = explode(PHP_EOL, $bulk);
+		$currentTask = false;
+		foreach ($tasks as $t) {
+			$t = trim($t);
+			if(strlen($t) == 0) continue;
+			$fChar = substr($t, 0, 1);
+			switch ($fChar) {
+				case '=':
+					if($currentTask->text == null) {
+						$currentTask->text = "";
+					}
+					$currentTask->text .= substr($t, 2)."\n";
+					break;
+				case '-':
+				default:
+					if($currentTask != false) {
+						$currentTask->Insert();
+					}
+					$currentTask = new Task();
+					$currentTask->cost = 0;
+					$currentTask->work_id = $work;
+					$currentTask->project_id = $project;
+
+					$title = substr($t, 2);
+					$title = explode('+', $title);
+
+					$hours = array_values(array_slice($title, -1))[0];
+					$lastChars = substr($t, -2);
+					if ($lastChars == 'h-') {
+						$hour = substr($hours, 0, -2);
+						$currentTask->expectation = $hour;
+					}
+
+					$fTitle = substr($t, 0, (0 - strlen($hours) - 1));
+					$fTitle = substr($fTitle, 2);
+					if($currentTask->title == null) {
+						$currentTask->title = "";
+					}
+					$currentTask->title .= $fTitle;
+					break;
+			}
+		}
+		if ($currentTask != false) {
+			$currentTask->Insert();
+		}
+		return $this->Json( array('success' => true, 'data' => null) );
 	}
 
 	public function DeleteTask() {
@@ -146,6 +202,10 @@ class TasksController extends BaseControl {
 		$this->display("phoenix/oceania.html");
 	}
 
+	public function Work($task_id) {
+		$q = TaskControl::WorkOnTask($task_id);
+		return $this->Json( array('success' => true) );
+	}
 
 	// logic for displaying the box
 	private function StatusBoxDisplay($status, $project) {

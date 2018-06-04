@@ -1,0 +1,41 @@
+<form id="add-work">
+	<div class="span6">
+		<div class="control-group" id="work-title-edit" style="display: none;">
+			<input class="span12" type="text" id="work-title" name="title" value="{$work->title}" required placeholder="Title" />
+			<input type="hidden" name="id" id="work-id" value="{$work->id}" />
+		</div>
+		<div class="control-group" id="work-desc-edit" style="display: none;">
+			<textarea id="work-text" name="text" class="span12 work-markdown-input">{$work->text}</textarea>
+		</div>
+		{if $work->id > 0}
+		<div class="control-group well" id="work-desc" onClick="toggleWorkEdit();">
+			<b>{$work->title}</b>
+			<div class="work-markdown-output"></div>
+		</div>
+		{/if}
+	</div>
+	<div class="span6">
+		<div>
+			<button type="button" class="btn btn-success" onClick="saveWork();">
+				<i class="fa fa-save"></i> Save
+			</button>
+			{if $work->id}
+			<button class="btn btn-danger" onClick="deleteWork(); return false;" > 
+				<i class="fa fa-trash-o"></i> Delete
+			</button>
+			{/if}
+		</div>
+		<div class="form-actions">
+
+		</div>
+	</div>
+</form>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	markdownWork();
+	{if $work->id == 0}
+		toggleWorkEdit();
+	{/if}
+});
+</script>

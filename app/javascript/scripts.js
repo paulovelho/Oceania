@@ -24,6 +24,7 @@ function postData(url, data, callback_success, callback_error) {
 		data: data, 
 		dataType: "json",
 		success: function(data){
+			console.info(data);
 			if( data.success ) {
 				callback_success(data.data);
 			} else {
@@ -37,4 +38,8 @@ function postData(url, data, callback_success, callback_error) {
 
 function markdownIt() {
 	$('.markdown-output').html($('.markdown-input').parseAsMarkdown());
+}
+
+function markdownWork() {
+	$('.work-markdown-output').html($('.work-markdown-input').parseAsMarkdown());
 }

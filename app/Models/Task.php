@@ -64,6 +64,15 @@ class TaskControl extends TaskControlBase {
 			));
 		return $this->Run($query);
 	}
+
+	public static function WorkOnTask($taskId) {
+		$query = MagratheaQuery::Update()
+			->Obj(new Task())
+			->SetRaw("cost = cost + 1")
+			->Where(array( "id" => $taskId ));
+		return self::Run($query);
+	}
+
 }
 
 ?>

@@ -27,7 +27,8 @@
 			->IncludeJavascript("javascript/scripts.js")
 			->IncludeJavascript("javascript/projects.js")
 			->IncludeJavascript("javascript/tasks-page.js")
-			->IncludeJavascript("javascript/task.js");
+			->IncludeJavascript("javascript/task.js")
+			->IncludeJavascript("javascript/works.js");
 
 		// JAVASCRIPTS:
 		/**

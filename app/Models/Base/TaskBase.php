@@ -5,7 +5,7 @@
 
 class TaskBase extends MagratheaModel implements iMagratheaModel {
 
-	public $id, $project_id, $parent_task_id, $work_id, $title, $text, $cost, $status_id, $user_id, $creator_id;
+	public $id, $project_id, $parent_task_id, $work_id, $title, $text, $expectation, $cost, $status_id, $user_id, $creator_id;
 	public $created_at, $updated_at;
 	protected $autoload = null;
 
@@ -26,6 +26,7 @@ class TaskBase extends MagratheaModel implements iMagratheaModel {
 		$this->dbValues["work_id"] = "int";
 		$this->dbValues["title"] = "string";
 		$this->dbValues["text"] = "text";
+		$this->dbValues["expectation"] = "float";
 		$this->dbValues["cost"] = "float";
 		$this->dbValues["status_id"] = "int";
 		$this->dbValues["user_id"] = "int";

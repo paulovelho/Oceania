@@ -11,11 +11,21 @@
 			</div>
 			{if $task->id > 0}
 			<div class="control-group well" id="task-desc" onClick="toggleEdit();">
+				<h3>{$task->title}</h3>
 				<div class="markdown-output"></div>
 			</div>
 			{/if}
 		</div>
 		<div class="span4">
+			<div class="control-group row-fluid">
+				{if $task->expectation > 0}
+					<span class="span12">({$task->expectation} hours)</span>
+				{else}
+					<span class="span6">expectation:</span>
+					<input type="text" class="span3" name="expectation" id="task-expectation" value="{$task->expectation}" style="float: left;" />
+					<span class="span3">hours</span>
+				{/if}
+			</div>
 			<div class="control-group">
 				<label class="control-label">Project</label>
 				<div class="controls">
@@ -25,6 +35,13 @@
 					{else} 
 						{html_options name="project_id" id="task_project_id" class="span12" options=$projects selected=$task->project_id}
 					{/if}
+				</div>
+			</div>
+			<div class="control-group" id="task-work-box" style="display: none;">
+				<label class="control-label">Work</label>
+				<div class="controls">
+					<input type="hidden" name="work_id" id="task-work-id" value="{$task->work_id}" />
+					<span id="task-work-name"></span>
 				</div>
 			</div>
 			<!--div class="control-group">
@@ -47,8 +64,9 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	markdownIt();
-	{if $task->id == 0}
+	var taskId = $("#task-id").val();
+	if(taskId == ""){
 		toggleEdit();
-	{/if}
+	}
 });
 </script>

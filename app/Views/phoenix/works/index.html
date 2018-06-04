@@ -1,0 +1,20 @@
+<div class="row-fluid">
+	<div class="span7">
+		{html_options name="sel_project" id="sel_project" class="span12" options=$projects selected=0  onchange="loadWorks();"}
+	</div>
+	<div class="span5">
+		&nbsp;
+	</div>
+</div>
+<hr/>
+<div class="row-fluid">
+	<div class="span12" id="work-board">
+	</div>
+</div>
+<hr/>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	loadWorks();
+});
+</script>

@@ -25,7 +25,7 @@ $(document).ready(function(){
 */
 
 // COLORBOX
-function modalOpen(url, title, onOpen) {
+function modalOpen(url, title, onOpen, onClose) {
 	var cbox = {
 		href: url,
 		title: title,
@@ -33,6 +33,9 @@ function modalOpen(url, title, onOpen) {
 	};
 	if ( onOpen ) {
 		cbox.onComplete = onOpen;
+	}
+	if ( onClose ) {
+		cbox.onClosed = onClose;
 	}
 	$.colorbox(cbox);
 }

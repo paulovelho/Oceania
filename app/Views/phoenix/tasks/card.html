@@ -2,10 +2,13 @@
 	<h4>{$task->title}</h4>
 	<hr/>
 	<div class="task-project-card">
-		<span><i class="fa fa-cube"></i> {$task->Project->name}</span>
+		<span><i class="fa fa-cubes"></i> {$task->Project->name}</span>
 	</div>
 	<div class="task-card-action">
 		<i class="fa fa-cog" onclick="openTask({$task->id});"></i>
 		<i class="fa fa-pencil-square-o" onclick="viewTask({$task->id}, '{$task->title}');"></i>
+	</div>
+	<div class="task-card-action">
+		<button class="btn-work" onclick="workOnTask({$task->id});"><i class="fa fa-flash"></i> ( <span id="cost-for-{$task->id}">{$task->cost}</span>h {if $task->expectation > 0}/ {$task->expectation}h{/if} )</button>
 	</div>
 </div>

@@ -51,3 +51,15 @@ function toggleEdit() {
 	$("#task-desc-edit").toggle();
 	$("#task-title-edit").toggle();
 }
+
+function workOnTask(task_id) {
+	var hElement = $("#cost-for-" + task_id);
+	var h = parseInt(hElement.html());
+	hElement.html("...");
+	postData("/Tasks/Work/" + task_id, {}, function(data) {
+		console.info(data);
+		hElement.html(h + 1);
+	}, function(error) {
+		console.info(error);
+	});
+}

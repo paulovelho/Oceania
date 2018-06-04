@@ -90,3 +90,10 @@ textarea {
 	width: 100%;
 	margin: 0;
 }
+
+.project-board section {
+	padding: 10px;
+}
+.btn-work {
+	width: 100%;
+}

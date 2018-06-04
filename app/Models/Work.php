@@ -14,6 +14,13 @@ class Work extends WorkBase {
 
 class WorkControl extends WorkControlBase {
 
+	public static function GetFromProject($project_id) {
+		$query = MagratheaQuery::Select()
+			->Obj(new Work())
+			->Where(array( "project_id" => $project_id ));
+		return self::Run($query);
+	}
+
 	function Search($query) {
 		$query = MagratheaQuery::Clean($query);
 		$query = MagratheaQuery::Select()

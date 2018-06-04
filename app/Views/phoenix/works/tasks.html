@@ -1,0 +1,39 @@
+<div class="widget table_basic_header">
+<header>
+    <h3>Tasks:</h3>
+    <ul class="toggle_content">
+        <li class="arrow"><a href="#">Toggle Content</a></li>
+    </ul>
+</header>
+<section>
+	<div class="row-fluid">
+		<div class="sapn12" id="work-task-list"></div>
+	</div>
+	<div class="row-fluid">
+		<div class="span6">
+			<button class="btn btn-success span12" onClick="addTaskWork();">
+				<i class="fa fa-plus-circle"></i> Add Task
+			</button>
+		</div>
+		<div class="span6">
+			<button class="btn btn-success span12" onClick="$('#form-bulk-task').slideDown();">
+				<i class="fa fa-plus-circle"></i><i class="fa fa-tasks"></i> Add Multiple Tasks
+			</button>
+		</div>
+	</div>
+	<br/>
+	<div class="row-fluid task-form" id="form-bulk-task" style="display: none;">
+		<div class="span12">
+			{include file="phoenix/works/form-bulk-tasks.html"}
+		</div>
+	</div>
+</section>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	loadTaskList();
+});
+</script>
+

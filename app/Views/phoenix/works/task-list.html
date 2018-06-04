@@ -1,0 +1,10 @@
+{if not $tasks}No Task yet...{/if} 
+<table class="table_basic">
+  {foreach $tasks as $t}
+  <tr {if $p@iteration is even}class="even"{/if}  onclick="viewTask({$t->id});">
+    <td class="pointer">{$t->title}</td>
+    <td class="pointer">{$t->cost}/{$t->expectation} h</td>
+  </tr>
+  {/foreach}
+</table>
+<br/>

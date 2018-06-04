@@ -1,0 +1,38 @@
+<div class="widget table_basic_header project-board">
+  <header>
+    <h3>Project #{$project->id}: {$project->name}</h3>
+    <input type="hidden" id="sel_project" value="{$project->id}">
+  </header>
+	<section>
+
+		{if $works}
+		<div class="row-fluid">
+			<div class="span12">
+		   <table class="table_basic">
+		    {foreach $works as $w}
+		    <tr {if $p@iteration is even}class="even"{/if}>
+		        <td class="pointer" onclick="viewWork('{$w->id}');">{$w->title}</td>
+		    </tr>
+		    {/foreach}
+		  </table>
+			</div>
+		</div>
+		{/if}
+
+		<br/>
+		<div class="row-fluid">
+			<div class="span12" id="work-form">
+			</div>
+		</div>
+		<br/><hr/>
+		<div class="row-fluid">
+			<div class="span12">
+				<button class="btn btn-success span12" onClick="workForm();">
+					<i class="fa fa-plus-circle"></i> Add Work
+				</button>
+			</div>
+		</div>
+
+	</section>
+</div>
+
