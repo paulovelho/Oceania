@@ -15,7 +15,7 @@ class WorksController extends BaseControl {
 		$this->display("phoenix/oceania.html");
 	}
 
-	public function List($project_id) {
+	public function ListWorks($project_id) {
 		$this->Start();
 		$project = new Project($project_id);
 		$works = $project->GetWorks();

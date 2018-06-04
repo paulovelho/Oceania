@@ -1,0 +1,1 @@
+tail -n 10 ~/logs/oceania.platypusweb.com.br/http/error.log

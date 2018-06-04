@@ -1,6 +1,6 @@
 function loadWorks() {
 	var selected_project = selectedProject();
-	LoadOnDiv("/Works/List/" + selected_project, "#work-board");
+	LoadOnDiv("/Works/ListWorks/" + selected_project, "#work-board");
 }
 
 function workForm() {
