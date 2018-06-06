@@ -23,6 +23,7 @@ class TasksController extends BaseControl {
 		$t->project_id = $_POST["project_id"];
 		$t->work_id = @intval($_POST["work_id"]);
 		$t->expectation = @intval($_POST["expectation"]);
+		$t->cost = 0;
 		$t->Insert();
 		$status = @$_POST["status_id"];
 		if( $status > 0 && $status != $t->status_id ) {
@@ -39,6 +40,9 @@ class TasksController extends BaseControl {
 		$t->project_id = $_POST["project_id"];
 		$t->work_id = @intval($_POST["work_id"]);
 		$t->expectation = @intval($_POST["expectation"]);
+		if(empty($t->cost)) {
+			$t->cost = 0;
+		}
 		$status = @$_POST["status_id"];
 		if( $status > 0 && $status != $t->status_id ) {
 			$t->ChangeStatus($status);
