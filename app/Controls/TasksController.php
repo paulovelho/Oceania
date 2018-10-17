@@ -80,6 +80,7 @@ class TasksController extends BaseControl {
 
 					$title = substr($t, 2);
 					$title = explode('+', $title);
+					$fTitle = $title[0];
 
 					$hours = array_values(array_slice($title, -1))[0];
 					$lastChars = substr($t, -2);
@@ -88,8 +89,6 @@ class TasksController extends BaseControl {
 						$currentTask->expectation = $hour;
 					}
 
-					$fTitle = substr($t, 0, (0 - strlen($hours) - 1));
-					$fTitle = substr($fTitle, 2);
 					if($currentTask->title == null) {
 						$currentTask->title = "";
 					}
@@ -106,7 +105,7 @@ class TasksController extends BaseControl {
 	public function DeleteTask() {
 		$t = new Task($_POST["id"]);
 		$t->Delete();
-		return $this->Json( array('success' => true, 'data' => null) );
+		return $this->Json( array('success' => true, 'data' => $t) );
 	}
 
 	public function ChangeStatus() {

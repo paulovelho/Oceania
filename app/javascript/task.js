@@ -37,6 +37,7 @@ function deleteTask() {
 		return false;
 	submitForm("#add-task", "/Tasks/DeleteTask",
 		function(data){
+			console.info(data.data);
 			refreshCards(data.status_id);
 			modalClose();
 			$.jGrowl("Task " + title + " Deleted", { header: 'Success', theme:"notification_styled_success" });			
